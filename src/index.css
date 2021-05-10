@@ -1,0 +1,45 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Philosopher', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-padding {
+  padding: 0 10vw;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 40px;
+}
+
+h4 {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 30px;
+}
+
+h5 {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 20px;
+}
+
+.Philosopher {
+  font-family: 'Philosopher', sans-serif;
+}
+
+p, .poppins {
+  font-family: 'Poppins', sans-serif;
+}
