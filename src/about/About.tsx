@@ -5,6 +5,8 @@ import Title from '../shared/Title'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAward, faTruck, faHandshake } from '@fortawesome/free-solid-svg-icons'
 import CircleIcon from '../shared/Circle-icon'
+import PhotoCard from '../shared/Photo-Card'
+import CEO from '../assets/Ceo.jpg'
 
 const About = () => {
     return (
@@ -42,7 +44,12 @@ const About = () => {
                     </article>
                     <article className="about-article">
                         <Title text="About Me" />
-
+                        <PhotoCard 
+                            img={CEO}
+                            alt="Carla Gomes Santo, CEO, Carlashes UK"
+                            text="Carla Santo, CEO of Carlashes, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                            ad minim veniam, quis nostrud exercitation "
+                        />
                     </article>
                 </section>
             </div>
