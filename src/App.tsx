@@ -12,9 +12,10 @@ import Home from './home/Home'
 import Product from './product/Product'
 import Confirmation from './confirmation/Confirmation'
 import _404 from './_404/404'
+import Contact from './contact/Contact';
+import About from './about/About'
 import Footer from './shared/Footer';
 import axios from 'axios'
-import Contact from './contact/Contact';
 
 const { REACT_APP_SERVER_ADDRESS } = process.env
 
@@ -70,7 +71,8 @@ const App = () => {
           <Route path={["/appointment-confirmed", "/purchase-confirmed"]} component={Confirmation} exact />
           <Route path={"/product"} component={Product} />
           <Route path={["/contact-me", "/contact"]} component={Contact} />
-          <Route path={["/not-found", "/404", "/not-found-404", "/404-not-found"]} component={_404} />
+          <Route path={["/about-us"]} component={About} />
+          <Route path={["/not-found", "/404", "/not-found-404", "/404-not-found", "/*"]} component={_404} />
         </Switch>
         <Footer />
       </Styles>
