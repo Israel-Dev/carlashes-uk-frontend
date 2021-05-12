@@ -4,6 +4,8 @@ import Title from '../shared/Title'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import Button2 from '../shared/Button-2'
+import { useHistory } from 'react-router-dom'
 
 const {
     REACT_APP_INSTAGRAM_PROFILE,
@@ -13,6 +15,8 @@ const {
 } = process.env
 
 const Contact = () => {
+    const history = useHistory()
+
     return (
         <Styles className="contact-wrapper">
             <Gradient />
@@ -49,6 +53,19 @@ const Contact = () => {
                         </span>
                     </article>
                 </section>
+                <footer className="contact-footer">
+                    <p className="contact-footer-paragraph">
+                        Want to learn more? Check our Abouts Us pages!
+                    </p>
+                    <Button2
+                        label="Learn More"
+                        callback={() => {
+                            window.scrollTo(0, 0)
+                            history.push("/about-us")
+                        }
+                        }
+                    />
+                </footer>
             </section>
         </Styles>
     )

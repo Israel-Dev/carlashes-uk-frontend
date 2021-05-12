@@ -43,10 +43,13 @@ const MosaicContent = () => {
                         <p className="text-paragraph">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
-                        <Button2 
+                        <Button2
                             label="Learn More"
-                            callback={() => history.push("/about-us")}
-                            />
+                            callback={() => {
+                                window.scrollTo(0, 0)
+                                history.push("/about-us")
+                            }}
+                        />
                     </div>
                     <div className="bottom-images-wrapper">
                         <img src={image08} className="bottom-left image" />

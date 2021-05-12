@@ -9,7 +9,7 @@ const styles = styled.main`
     align-items: center;
 
     .contact-padding {
-        padding: ${gradientHeight / 2.6}px 0;
+        padding: ${gradientHeight / 2.6}px 0 ${gradientHeight / 3}px 0;
         width: 100%;
         max-width: 1366px;
         display: flex;
@@ -56,6 +56,18 @@ const styles = styled.main`
     .article-span {
         font-size: 1.3em;
         font-weight: 300;
+    }
+
+    .contact-footer {
+        margin: 3% 0 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .contact-footer-paragraph {
+        font-weight: 200;
     }
 `
 
