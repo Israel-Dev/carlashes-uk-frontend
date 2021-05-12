@@ -24,6 +24,10 @@ const styles = styled.article`
         padding: 70px 2% 70px 6%;
         color: white;
     }
+
+    .photo-card-paragraph {
+        font-weight: 200;
+    }
 `
 
 export default styles

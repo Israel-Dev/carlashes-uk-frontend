@@ -48,7 +48,7 @@ const About = () => {
                             img={CEO}
                             alt="Carla Gomes Santo, CEO, Carlashes UK"
                             text="Carla Santo, CEO of Carlashes, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim 
-                            ad minim veniam, quis nostrud exercitation "
+                            ad minim veniam, quis nostrud exercitation."
                         />
                     </article>
                 </section>
