@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import logoImageFile from '../assets/logo.png'
@@ -9,6 +11,7 @@ interface IProps {
 }
 
 const Menu = (props: IProps) => {
+    const [isOpen, setIsOpen] = useState(false)
     const history = useHistory()
     const [logo, setLogo] = useState(
         { src: logoImageFile, alt: "Carlashes - UK" }
@@ -18,9 +21,16 @@ const Menu = (props: IProps) => {
 
     const optionsElem = options.map((option, i) => {
         return (
-            <Link to={`/${option.url}`} key={`${i}-option`}>
-                <li className="menu-option">{option.name}</li>
-            </Link>
+            <li
+                key={`${i}-option`}
+                className="menu-option"
+                onClick={() => {
+                    setIsOpen(false)
+                    history.push(`/${option.url}`)
+                }}
+            >
+                {option.name}
+            </li>
         )
     })
 
@@ -41,6 +51,28 @@ const Menu = (props: IProps) => {
                         <Button label="Contact Me" callback={() => history.push("/contact-me")} />
                     </ul>
                 </div>
+                <div className="menu-icon-wrapper-mobile">
+                    <FontAwesomeIcon
+                        className="menu-icon"
+                        icon={faBars}
+                        size="2x"
+                        onClick={() => setIsOpen(!isOpen)}
+                    />
+                </div>
+            </div>
+            <div className={`menu-options-wrapper-mobile ${isOpen ? "open" : ""}`}>
+                <ul className="menu-list">
+                    {optionsElem}
+                    <li
+                        className="menu-option"
+                        onClick={() => {
+                            setIsOpen(false)
+                            history.push(`/contact-me`)
+                        }}
+                    >
+                        Contact Me
+                    </li>
+                </ul>
             </div>
         </Styles>
     )

@@ -37,6 +37,18 @@ const styles = styled.section`
         justify-content: center;
         align-items: center;
     }
+
+    @media(max-width: 875px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .gallery-image-article {
+            width: 90%;
+        }
+    }
 `
 
 export default styles

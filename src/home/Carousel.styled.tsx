@@ -3,6 +3,7 @@ import colors from '../utils/colors'
 
 const styles = styled.section`
     max-height: 700px;
+    max-width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -112,6 +113,36 @@ const styles = styled.section`
         z-index: -5;
         background-color: white;
         transform: translate(25%, 25%);
+    }
+
+    @media(max-width: 875px) {
+        min-height: 500px;
+
+        .carousel-maintitle {
+            font-size: 2.7em;
+        }
+
+        .carousel-subtitle {
+            font-size: .9em;
+            max-width: 50%;
+        }
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    @media(max-width: 545px) { 
+        .carousel-dots-wrapper {
+            padding-left: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .carousel-sticker-position {
+            display: none;
+        }
     }
 `
 

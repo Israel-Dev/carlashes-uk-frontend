@@ -32,6 +32,14 @@ const styles = styled.main`
         align-items: center;
         flex-direction: column;
     }
+
+    @media(max-width: 875px) {
+        .product-section {
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 `
 
 export default styles

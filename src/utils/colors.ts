@@ -4,7 +4,7 @@ const colors = {
     "alpha-White": "#ffffff65",
     "alpha-gray": "#595858d1",
     "alpha-pink": "#b9a4a3b0",
-    "dark-gray": "#595858",
+    "dark-gray": "#B39579", // dark-brown
     "light-gray": "rgba(89, 88, 88, 0.3)",
     "purple-gradient": "linear-gradient(45deg,rgb(73 137 153) 0%,rgb(156 214 230) 100%);" // blue-gradient
 }

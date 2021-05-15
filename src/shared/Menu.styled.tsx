@@ -4,9 +4,12 @@ import colors from '../utils/colors'
 const Styles = styled.nav`
     position: absolute;
     width: 100%;
-    height: 100px;
+    padding-top: 20px;
+    min-height: 125px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Philosopher', sans-serif;
     font-size: 18px;
     font-weight: bold;
@@ -33,8 +36,14 @@ const Styles = styled.nav`
         width: 80vw;
     }
 
+    .menu-options-wrapper-mobile,
+    .menu-icon {
+        display: none;
+    }
+
     .menu-option {
         color: white;
+        cursor: pointer;
         user-select: none;
         transition: all ease-in-out .2s;
     }
@@ -52,6 +61,61 @@ const Styles = styled.nav`
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+    }
+
+    @media(max-width: 875px) {
+        margin-top: 20px;
+        justify-content: flex-start;
+        z-index: 50;
+
+        .menu-icon:hover {
+            cursor: pointer;
+        }
+
+        .menu-padding {
+            max-width: 80vw;
+            justify-content: space-between;
+        }
+
+        .menu-icon-wrapper-mobile {
+            display: block;
+        }
+
+        .menu-options-wrapper {
+            display: none;
+        }
+
+        .menu-options-wrapper-mobile,
+        .menu-icon {
+            display: block;
+        }
+
+        .menu-options-wrapper-mobile {
+            max-height: 0;
+            overflow: hidden;
+            transition: all ease-in-out .3s;
+            width: 100%;
+            background-color: ${colors['dark-gray']};
+        }
+
+        .open {
+            max-height: 300px;
+            transition: all ease-in-out .3s;
+        }
+
+        .menu-list {
+            flex-direction: column;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-option {
+            border-bottom: white solid 1px;
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+        }
     }
 `
 

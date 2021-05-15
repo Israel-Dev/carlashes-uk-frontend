@@ -3,7 +3,7 @@ import colors from '../utils/colors'
 
 const styles = styled.div`
     width: 10vw;
-    min-width: 100px;
+    min-width: 220px;
     display: flex;
     justify-content: space-between;
 
@@ -30,6 +30,10 @@ const styles = styled.div`
     .active:hover {
         transform: none;
         cursor: auto;
+    }
+
+    @media(max-width: 875px) {
+        min-width: 200px;
     }
 `
 

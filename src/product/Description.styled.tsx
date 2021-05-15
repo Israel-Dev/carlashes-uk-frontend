@@ -76,6 +76,13 @@ const styles = styled.section`
         color: ${colors['alpha-pink']};
     }
 
+    @media(max-width: 875px) {
+        .descrption-content {
+            margin-top: 0%;
+            width: 90vw;
+        }
+    }
+
 `
 
 export default styles
