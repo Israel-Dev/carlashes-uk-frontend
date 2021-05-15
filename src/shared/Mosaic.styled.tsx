@@ -33,8 +33,8 @@ const styles = styled.section`
         height: 100%;
         opacity: 0;
         z-index: 5;
-        background: rgb(241,15,178);
-        background: linear-gradient(180deg,rgba(241,15,178,0.3) 0%,rgb(0 0 0 / 20%) 50%, rgba(0,163,255,0.3) 100%);
+        background: rgb(153 120 89);
+        background: linear-gradient(180deg,rgb(153 120 89 / 90%) 0%,rgb(0 0 0 / 20%) 50%,rgb(73 137 153 / 70%) 100%);
         transition: all .4s ease-in-out;
     }
 

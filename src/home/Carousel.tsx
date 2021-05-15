@@ -1,5 +1,5 @@
 import Styles from './Carousel.styled'
-import image00 from '../assets/Slider_01.jpg'
+import image00 from '../assets/Slider_05.jpg'
 import image01 from '../assets/Slider_02.jpg'
 import image02 from '../assets/Slider_03.jpg'
 import image03 from '../assets/Slider_04.jpg'

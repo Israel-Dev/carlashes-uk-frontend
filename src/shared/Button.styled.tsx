@@ -8,8 +8,8 @@ const styles = styled.button`
     outline: none;
     border: none;
     color: white;
-    background: rgb(69,47,128);
-    background: linear-gradient(45deg, rgba(69,47,128,1) 0%, rgba(165,54,154,1) 100%);
+    background: rgb(73 137 153);
+    background: linear-gradient(45deg,rgb(73 137 153) 50%,rgb(156 214 230) 100%);
     transition: all ease-in-out .2s;
 
     :hover {

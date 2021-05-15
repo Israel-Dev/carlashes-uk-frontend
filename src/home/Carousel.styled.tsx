@@ -60,7 +60,7 @@ const styles = styled.section`
         height: 100%;
         z-index: 1;
         background: rgb(91,0,38);
-        background: linear-gradient(140deg,rgb(91 0 38 / 30%) 50%,rgba(178,109,180,0.04) 80%,rgba(0,0,0,0) 100%);
+        background: linear-gradient(140deg,rgb(153 120 89 / 30%) 50%,rgba(178,109,180,0.04) 80%,rgba(0,0,0,0) 100%);
         position: absolute;
     }
 

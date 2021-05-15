@@ -5,3 +5,5 @@
 package-lock.json
 README.md
 yarn.lock
+# Local Netlify folder
+.netlify

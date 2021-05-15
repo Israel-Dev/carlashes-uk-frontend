@@ -24,7 +24,7 @@ const styles = styled.main`
     }
 
     .about-logo {
-        filter: invert(19%) sepia(12%) saturate(5897%) hue-rotate(229deg) brightness(60%) contrast(98%);
+        filter: invert(19%) sepia(12%) saturate(5897%) hue-rotate(160deg) brightness(60%) contrast(98%);
     }
 
     .about-paragraph {
