@@ -136,6 +136,7 @@ const Description = (props: IProps) => {
                         </div>
                     </div>
                     <Button
+                        isFullWidth={true}
                         label="Purchase"
                         callback={purchase}
                     />

@@ -60,6 +60,42 @@ const styles = styled.main`
         align-items: center;
         justify-content: space-evenly;
     }
+
+    @media(max-width: 875px) {
+        .about-header {
+            margin: 150px 0 0 0;
+        }
+
+        .about-logo {
+            max-height: 250px;
+        }
+
+        .about-paragraph {
+            width: 85%;
+            font-size: 1.3em;
+        }
+
+        .about-section {
+            width: 100%;
+        }
+
+        .about-article {
+            margin: 5% 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .about-article-section {
+            width: 85%;
+        }
+
+        .about-article-footer {
+            flex-direction: column;
+        }
+    }
 `
 
 export default styles

@@ -6,11 +6,12 @@ import { useEffect } from 'react'
 interface IProps {
     images: { src: string, alt: string }[],
     hasDots?: boolean
+    title?: string
 }
 
 const Gallery = (props: IProps) => {
     const [activeImage, setActiveImage] = useState(0)
-    const { images, hasDots } = props
+    const { images, hasDots, title } = props
 
     const imagesElem = images.map((image, i) => (
         <article className={`gallery-image-article ${i === activeImage ? "visible" : "hidden"}`} key={`${image.alt}-${i}`}>
@@ -24,6 +25,12 @@ const Gallery = (props: IProps) => {
 
     return (
         <Styles className="gallery-wrapper">
+            {
+                title &&
+                <header className="gallery-header-title-mobile">
+                    <h2 className="product-title">{title}</h2>
+                </header>
+            }
             {imagesElem}
             {
                 hasDots &&

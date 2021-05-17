@@ -106,6 +106,25 @@ const styles = styled.section`
         width: 70%;
         text-align: center;
     }
+
+    @media(max-width: 875px) {
+        .left-side-wrapper,
+        .right-side-wrapper,
+        .center-top-left,
+        .bottom-left,
+        .bottom-right {
+            display: none;
+        }
+
+        .center-top-right,
+        .bottom-center {
+            width: 100%;
+        }
+
+        .text-wrapper {
+            margin-bottom: 10%;
+        }
+    }
 `
 
 export default styles

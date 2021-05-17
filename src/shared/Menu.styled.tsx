@@ -64,7 +64,8 @@ const Styles = styled.nav`
     }
 
     @media(max-width: 875px) {
-        margin-top: 20px;
+        /* margin-top: 20px; */
+        padding-top: 0;
         justify-content: flex-start;
         z-index: 50;
 
@@ -73,6 +74,7 @@ const Styles = styled.nav`
         }
 
         .menu-padding {
+            margin: 20px 0;
             max-width: 80vw;
             justify-content: space-between;
         }

@@ -21,6 +21,10 @@ const styles = styled.button`
     :active {
         color: rgb(69,47,128);
     }
+
+    @media(max-width: 875px) {
+        width: 100%;
+    }
 `
 
 export default styles

@@ -34,6 +34,10 @@ const styles = styled.main`
     }
 
     @media(max-width: 875px) {
+        .product-page-padding {
+            padding-top: ${gradientHeight / 3.5}px;
+        }
+
         .product-section {
             justify-content: center;
             flex-direction: column;

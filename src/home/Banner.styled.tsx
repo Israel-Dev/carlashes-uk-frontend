@@ -38,6 +38,14 @@ const styles = styled.section`
         background-color: rgba(0, 0, 0, 0.55);
         z-index: 5;
     }
+
+    @media(max-width: 875px) {
+        height: 500px;
+
+        .banner-text-wrapper {
+            justify-content: center;
+        }
+    }
 `
 
 export default styles

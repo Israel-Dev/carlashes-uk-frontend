@@ -7,6 +7,12 @@ const styles = styled.article`
         font-size: 1.5em;
         color: ${colors.purple};
     }
+
+    @media(max-width: 875px) {
+        .price-span {
+            font-size: 2em;
+        }
+    }
 `
 
 export default styles

@@ -69,6 +69,12 @@ const styles = styled.section`
     .paragraph {
         font-weight: 200;
     }
+
+    @media(max-width: 875px) {
+        .modal-box {
+            width: 85%;
+        }
+    }
 `
 
 export default styles

@@ -4,6 +4,10 @@ import colors from '../utils/colors'
 const styles = styled.section`
     position: relative;
 
+    .gallery-header-title-mobile {
+        display: none;
+    }
+
     .gallery-image-article {
         position: relative;
         width: 30vw;
@@ -44,6 +48,22 @@ const styles = styled.section`
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
+        .hidden {
+            top: auto;
+            left: auto;
+        }
+
+        .hidden,
+        .visible {
+            transition: all ease-in-out .1s;
+        }
+
+        .gallery-header-title-mobile {
+            display: flex;
+            width: 85%;
+            font-size: .7em;
+        }
 
         .gallery-image-article {
             width: 90%;

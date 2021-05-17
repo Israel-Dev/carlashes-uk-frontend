@@ -68,6 +68,10 @@ const styles = styled.section`
         position: absolute;
         left: 0;
     }
+
+    @media(max-width: 875px) {
+        height: 450px;
+    }
 `
 
 export default styles

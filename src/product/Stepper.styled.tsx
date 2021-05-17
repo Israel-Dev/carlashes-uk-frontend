@@ -41,6 +41,14 @@ const styles = styled.article`
         background-color: ${colors['dark-gray']};
         color: white;
     }
+
+    @media(max-width: 875px) {
+        align-items: center;
+
+        .stepper-container {
+            transform: scale(1.2);
+        }
+    }
 `
 
 export default styles

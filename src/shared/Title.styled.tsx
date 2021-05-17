@@ -6,6 +6,7 @@ interface IStyleProps {
 }
 
 const styles = styled.header`
+    position: relative;
     width: 100%;
     max-width: 1366px;
     display: flex;
@@ -43,6 +44,41 @@ const styles = styled.header`
     ::after {
         transform: translateX(100%);
         margin-right: -1.5%;
+    }
+
+    @media(max-width: 875px) {
+        max-width: 85%;
+
+        .title-text {
+            font-size: 1.5em;
+        }
+
+        ::before,
+        ::after {
+            width: 15%;
+            margin-right:0;
+        }
+
+        ::before {
+            left: 0;
+            transform: translateX(25%);
+        }
+
+        ::after {
+            right: 0;
+            transform: translateX(-25%);
+        }
+
+        /*
+        ::before {
+            left: 0;
+            width: 10%;
+        }
+
+        :after {
+            width: 10%;
+            right: 0;
+        } */
     }
 `
 

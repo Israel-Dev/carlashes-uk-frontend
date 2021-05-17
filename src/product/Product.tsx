@@ -119,6 +119,7 @@ const Product = () => {
             <div className="product-page-padding">
                 <section className="product-section">
                     <Gallery
+                        title={productData?.title}
                         images={productData?.images}
                         hasDots={productData?.images.length ? true : false}
                     />

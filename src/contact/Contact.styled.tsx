@@ -69,6 +69,29 @@ const styles = styled.main`
     .contact-footer-paragraph {
         font-weight: 200;
     }
+
+    @media(max-width: 875px) {
+        .contact-padding {
+            padding: ${gradientHeight / 2.6}px 0 ${gradientHeight / 6}px 0;
+        }
+
+        .contact-container {
+            width: 90%;
+            min-height: 600px;
+            padding: 10% 0;
+            flex-direction: column;
+        }
+
+        .split-bar {
+            height: 1px;
+            width: 75%;
+        }
+
+        .contact-footer {
+            width: 90%;
+            text-align: center;
+        }
+    }
 `
 
 export default styles

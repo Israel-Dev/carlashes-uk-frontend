@@ -16,6 +16,13 @@ const styles = styled.main`
         width: 100%;
     }
 
+    .collection-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
     .calendar-section {
         display: flex;
         justify-content: center;

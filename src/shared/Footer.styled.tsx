@@ -85,6 +85,46 @@ const styles = styled.footer`
         justify-content:space-between;
         align-items: center;
     }
+
+    @media(max-width: 875px) {
+        padding: 0;
+
+        .footer-padding {
+            padding: 20px 0;
+        }
+
+        .top-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .middle-section {
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .left-corner,
+        .bottom-section {
+            width: 85%;
+        }
+
+        .bottom-text {
+            text-align: center;
+        }
+
+        .right-text {
+            text-align: center;
+        }
+
+        .bottom-section {
+            flex-direction: column;
+        }
+
+        .social-midia-wrapper {
+            width: 50%;
+        }
+    }
 `
 
 export default styles

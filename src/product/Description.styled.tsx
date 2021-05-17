@@ -77,9 +77,30 @@ const styles = styled.section`
     }
 
     @media(max-width: 875px) {
+        .descrption-header {
+            display: none;
+        }
+
         .descrption-content {
             margin-top: 0%;
             width: 90vw;
+        }
+
+        .description-action-section {
+            flex-direction: column-reverse;
+        }
+
+        .purchase-wrapper {
+            max-width: 85%;
+        }
+
+        .description-footer {
+            margin: 15% 0 10% 0;
+            flex-direction: column-reverse;
+        }
+
+        .share-wrapper {
+            margin-top: 10%;
         }
     }
 
