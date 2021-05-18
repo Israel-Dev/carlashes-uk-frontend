@@ -17,6 +17,11 @@ const {
 const Contact = () => {
     const history = useHistory()
 
+    const goToAboutUs = () => {
+        window.scrollTo(0, 0)
+        history.push("/about-us")
+    }
+
     return (
         <Styles className="contact-wrapper">
             <Gradient />
@@ -59,11 +64,7 @@ const Contact = () => {
                     </p>
                     <Button2
                         label="Learn More"
-                        callback={() => {
-                            window.scrollTo(0, 0)
-                            history.push("/about-us")
-                        }
-                        }
+                        callback={goToAboutUs}
                     />
                 </footer>
             </section>

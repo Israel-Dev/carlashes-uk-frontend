@@ -14,6 +14,11 @@ const {
 const Footer = () => {
     const history = useHistory()
 
+    const goToAboutUs = () => {
+        window.scrollTo(0,0)
+        history.push("/about-us")
+    }
+
     return (
         <Styles className="footer-wrapper">
             <div className="footer-padding">
@@ -35,10 +40,7 @@ const Footer = () => {
                         <p 
                             className="right-text link"
                             style={{cursor: "pointer", margin: 0}}
-                            onClick={() => {
-                                window.scrollTo(0,0)
-                                history.push("/about-us")
-                            }}
+                            onClick={goToAboutUs}
                             >
                                 About Us
                             </p>

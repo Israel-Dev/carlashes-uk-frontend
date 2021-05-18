@@ -43,7 +43,7 @@ const styles = styled.section`
         content: "";
         height: 100%;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.747);
         z-index: 5;
     }
 

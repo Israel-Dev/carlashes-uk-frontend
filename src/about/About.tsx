@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAward, faTruck, faHandshake } from '@fortawesome/free-solid-svg-icons'
 import CircleIcon from '../shared/Circle-icon'
 import PhotoCard from '../shared/Photo-Card'
-import CEO from '../assets/Ceo.jpg'
+import CEO from '../assets/Ceo.webp'
 
 const About = () => {
     return (

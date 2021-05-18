@@ -21,6 +21,8 @@ const styles = styled.main`
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        width: 100%;
+        max-width: 1366px;
     }
 
     .calendar-section {

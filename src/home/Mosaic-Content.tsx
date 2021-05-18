@@ -1,12 +1,12 @@
 import Styles from './Mosaic-Content.styled'
-import image01 from '../assets/Mosaic_01.jpg'
-import image02 from '../assets/Mosaic_02.jpg'
-import image03 from '../assets/Mosaic_03.jpg'
-import image04 from '../assets/Mosaic_04.jpg'
-import image05 from '../assets/Mosaic_05.jpg'
-import image06 from '../assets/Mosaic_06.jpg'
-import image07 from '../assets/Mosaic_07.jpg'
-import image08 from '../assets/Mosaic_08.jpg'
+import image01 from '../assets/Mosaic_01.webp'
+import image02 from '../assets/Mosaic_02.webp'
+import image03 from '../assets/Mosaic_03.webp'
+import image04 from '../assets/Mosaic_04.webp'
+import image05 from '../assets/Mosaic_05.webp'
+import image06 from '../assets/Mosaic_06.webp'
+import image07 from '../assets/Mosaic_07.webp'
+import image08 from '../assets/Mosaic_08.webp'
 import { useState } from 'react'
 import Title from '../shared/Title'
 import Button_2 from '../shared/Button-2'
@@ -27,6 +27,11 @@ const MosaicContent = () => {
         { src: image08, alt: "calrashes-UK" },
     ])
 
+    const goToAboutUs = () => {
+        window.scrollTo(0, 0)
+        history.push("/about-us")
+    }
+
     return (
         <Styles className="mosaic-content-wrapper">
             <div className="mosaic-content-container">
@@ -45,10 +50,7 @@ const MosaicContent = () => {
                         </p>
                         <Button2
                             label="Learn More"
-                            callback={() => {
-                                window.scrollTo(0, 0)
-                                history.push("/about-us")
-                            }}
+                            callback={goToAboutUs}
                         />
                     </div>
                     <div className="bottom-images-wrapper">

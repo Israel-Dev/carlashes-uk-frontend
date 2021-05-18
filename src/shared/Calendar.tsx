@@ -288,6 +288,11 @@ const Calendar = () => {
         true: "You'll be contacted by email or phone number confirming the appointment"
     }
 
+    const hideModal = () => {
+        setShowModal(false)
+        setIsValidReq(false)
+    }
+
     return (
         <Styles className="calendar-wrapper">
             <Modal
@@ -303,10 +308,7 @@ const Calendar = () => {
                 }
                 message={!modalMessage ? modalMessageObj[`${showModal}`] : modalMessage}
                 buttonLabel="Ok!"
-                hideModalCallback={() => {
-                    setShowModal(false)
-                    setIsValidReq(false)
-                }}
+                hideModalCallback={hideModal}
             />
             <div className="calendar-padding">
                 <ThemeProvider theme={purpleTheme}>

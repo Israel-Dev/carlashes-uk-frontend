@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Styles from './Banner.styled'
-import coverImageFile from '../assets/Banner_01.jpg'
+import coverImageFile from '../assets/Banner_01.webp'
 import logoImageFile from '../assets/logo.png'
 import Title from '../shared/Title'
 

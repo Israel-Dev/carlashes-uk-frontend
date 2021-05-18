@@ -10,6 +10,14 @@ interface IProps {
 const Stepper = (props: IProps) => {
     const { label, callback, quantity } = props
 
+    const lessOne = () => {
+        if (quantity > 1) callback(quantity - 1)
+    }
+
+    const plusOne = () => {
+        callback(quantity + 1)
+    }
+
     return (
         <Styles className="stepper-wrapper">
             {
@@ -19,9 +27,7 @@ const Stepper = (props: IProps) => {
             <div className="stepper-container">
                 <div
                     className="box"
-                    onClick={() => {
-                        if (quantity > 1) callback(quantity - 1)
-                    }}
+                    onClick={lessOne}
                 >
                     -
                 </div>
@@ -30,9 +36,7 @@ const Stepper = (props: IProps) => {
                 </div>
                 <div
                     className="box"
-                    onClick={() => {
-                        callback(quantity + 1)
-                    }}
+                    onClick={plusOne}
                 >
                     +
                 </div>
