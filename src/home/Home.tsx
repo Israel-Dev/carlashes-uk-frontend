@@ -84,6 +84,9 @@ const Home = () => {
                     text="Agenda"
                 />
                 <Calendar />
+                <p className="calendar-paragraph">
+                    Schedule an Appointment with us on the available time slots!
+                </p>
             </section>
             <MosaicContent />
         </Styles>

@@ -151,6 +151,7 @@ const FormBasicLayout = ({ onFieldChange, appointmentData, ...restProps }: any, 
                 type="titleLabel"
             />
             <AppointmentForm.TextEditor
+                className="text-input-form"
                 type="ordinaryTextEditor"
                 readOnly={false}
                 placeholder="Your Name"
@@ -178,7 +179,7 @@ const FormBasicLayout = ({ onFieldChange, appointmentData, ...restProps }: any, 
                         value={appointmentData.endDate}
                         onValueChange={(newValue) => onCustomFieldChange(newValue, "endDate")}
                         className="date-picker"
-                    // disabled={true}
+                        // disabled={true}
                     />
                 </article>
             </div>
@@ -217,6 +218,14 @@ const FormBasicLayout = ({ onFieldChange, appointmentData, ...restProps }: any, 
         </div>
     )
 }
+
+const DayTimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
+    return <DayView.TimeTableCell onClick={onDoubleClick} {...restProps} />;
+};
+
+const WeekTimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
+    return <WeekView.TimeTableCell onClick={onDoubleClick} {...restProps} />;
+};
 
 const Calendar = () => {
     const [currDate, setCurrDate] = useState(new Date())
@@ -315,6 +324,7 @@ const Calendar = () => {
                                 startDayHour={9}
                                 endDayHour={23}
                                 cellDuration={60}
+                                timeTableCellComponent={WeekTimeTableCell}
                             />
                             <EditingState
                                 onCommitChanges={requestEvent}
@@ -322,6 +332,7 @@ const Calendar = () => {
                             <DayView
                                 startDayHour={9}
                                 endDayHour={23}
+                                timeTableCellComponent={DayTimeTableCell}
                             />
                             <Toolbar />
                             <DateNavigator />

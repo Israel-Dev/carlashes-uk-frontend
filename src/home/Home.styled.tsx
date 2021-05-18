@@ -30,6 +30,11 @@ const styles = styled.main`
         flex-direction: column;
         width: 100%;
     }
+
+    .calendar-paragraph {
+        /* margin: 0; */
+        font-weight: 200;
+    }
 `
 
 export default styles

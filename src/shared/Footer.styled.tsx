@@ -10,6 +10,7 @@ const styles = styled.footer`
     display: flex;
     justify-content: center;
     align-items: center;
+    color: ${colors['dark-gray']};
 
     .footer-padding {
         width: 100%;
@@ -47,7 +48,6 @@ const styles = styled.footer`
         margin: 0;
         padding: 0;
         font-weight: 300;
-        color: ${colors['dark-gray']};
     }
 
     .color-text-under-logo {

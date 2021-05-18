@@ -91,7 +91,7 @@ const CardCarousel = () => {
                     icon={faChevronCircleLeft}
                     color={colors.purple}
                     size="2x"
-                    onMouseEnter={() => setScrollDirection("left")}
+                    onMouseEnter={() => setScrollDirection("right")}
                     onMouseLeave={() => setScrollDirection("")}
                 />
                 <FontAwesomeIcon
@@ -99,7 +99,7 @@ const CardCarousel = () => {
                     icon={faChevronCircleRight}
                     color={colors.purple}
                     size="2x"
-                    onMouseEnter={() => setScrollDirection("right")}
+                    onMouseEnter={() => setScrollDirection("left")}
                     onMouseLeave={() => setScrollDirection("")}
                 />
             </footer>

@@ -32,6 +32,16 @@ const Footer = () => {
                             {REACT_APP_ZIP_CODE}, <br />
                             United Kingdom
                         </p>
+                        <p 
+                            className="right-text link"
+                            style={{cursor: "pointer", margin: 0}}
+                            onClick={() => {
+                                window.scrollTo(0,0)
+                                history.push("/about-us")
+                            }}
+                            >
+                                About Us
+                            </p>
                     </aside>
                 </section>
                 <hr className="horizontal-rule" />

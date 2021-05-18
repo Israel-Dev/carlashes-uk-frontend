@@ -97,7 +97,7 @@ const Styles = styled.nav`
             overflow: hidden;
             transition: all ease-in-out .3s;
             width: 100%;
-            background-color: ${colors['dark-gray']};
+            background-color: ${colors['dark-brown']};
         }
 
         .open {

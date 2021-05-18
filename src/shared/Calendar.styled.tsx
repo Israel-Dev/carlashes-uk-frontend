@@ -81,6 +81,19 @@ const styles = styled.section`
         background-color: white;
         color: ${colors.purple};
     }
+
+    .MuiInputBase-input {
+        background-color: white;
+    }
+
+    .MuiInputBase-input::placeholder {
+        color: ${colors.gray};
+        opacity: 1;
+    }
+
+    /* .text-input-form {
+        background-color: red !important;
+    } */
 `
 
 export default styles
