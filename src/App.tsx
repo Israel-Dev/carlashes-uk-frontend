@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Styles from './App.styled'
 import Menu from './shared/Menu'
 
@@ -8,16 +8,18 @@ import {
   Route
 } from 'react-router-dom'
 
-import Home from './home/Home'
-import Product from './product/Product'
-import Confirmation from './confirmation/Confirmation'
-import _404 from './_404/404'
-import Contact from './contact/Contact';
-import About from './about/About'
 import Footer from './shared/Footer';
 import axios from 'axios'
+import Loading from './loading/Loading';
 
 const { REACT_APP_SERVER_ADDRESS } = process.env
+
+const LazyHome = React.lazy(() => import('./home/Home'))
+const LazyConfirmation = React.lazy(() => import('./confirmation/Confirmation'))
+const LazyProduct = React.lazy(() => import('./product/Product'))
+const LazyContact = React.lazy(() => import('./contact/Contact'))
+const LazyAbout = React.lazy(() => import('./about/About'))
+const Lazy404 = React.lazy(() => import('./_404/404'))
 
 const App = () => {
   const [menuOptions, setMenuOptions] = useState<{ name: string, url: string }[]>(
@@ -66,14 +68,16 @@ const App = () => {
         <Menu
           options={menuOptions}
         />
-        <Switch>
-          <Route path={["/", "/home"]} component={Home} exact />
-          <Route path={["/appointment-confirmed", "/purchase-confirmed"]} component={Confirmation} exact />
-          <Route path={"/product"} component={Product} />
-          <Route path={["/contact-me", "/contact"]} component={Contact} />
-          <Route path={["/about-us"]} component={About} />
-          <Route path={["/not-found", "/404", "/not-found-404", "/404-not-found", "/*"]} component={_404} />
-        </Switch>
+        <Suspense fallback={<Loading/>}>
+          <Switch>
+            <Route path={["/", "/home"]} component={LazyHome} exact />
+            <Route path={["/appointment-confirmed", "/purchase-confirmed"]} component={LazyConfirmation} exact />
+            <Route path={"/product"} component={LazyProduct} />
+            <Route path={["/contact-me", "/contact"]} component={LazyContact} />
+            <Route path={["/about-us"]} component={LazyAbout} />
+            <Route component={Lazy404} />
+          </Switch>
+        </Suspense>
         <Footer />
       </Styles>
     </BrowserRouter>

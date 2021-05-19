@@ -42,6 +42,8 @@ const Menu = (props: IProps) => {
                         <img
                             src={logo.src}
                             className="logo-img"
+                            height="auto"
+                            width="auto"
                         />
                     </Link>
                 </div>

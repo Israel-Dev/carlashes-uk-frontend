@@ -10,9 +10,14 @@
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
   <!-- Font imports -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@300;500&display=swap"
-    rel="stylesheet">
+
+  <link 
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@300;500&display=swap"
+    as="style" 
+    onload="this.onload=null;this.rel='stylesheet'"
+  >
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@300;500&display=swap"></noscript>
 
   <!--
       manifest.json provides metadata used when your web app is installed on a

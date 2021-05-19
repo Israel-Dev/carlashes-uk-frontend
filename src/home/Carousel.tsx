@@ -42,6 +42,8 @@ const Carousel = (props: IProps) => {
                 activeIndex === i ? "current-image" : "previous-image"
             }
             src={image}
+            height="auto"
+            width="auto"
         />
     ))
 

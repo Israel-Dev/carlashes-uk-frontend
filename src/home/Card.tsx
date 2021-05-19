@@ -12,7 +12,7 @@ const Card = (props: IProps) => {
     return (
         <Styles className="card-wrapper">
             <div className="card-image-wrapper">
-                <img className="card-image" src={image} alt={label} />
+                <img className="card-image" src={image} alt={label} width="auto" height="auto"/>
                 <div className="card-label-background">
                     <h4 className="label-text">{label}</h4>
                 </div>
