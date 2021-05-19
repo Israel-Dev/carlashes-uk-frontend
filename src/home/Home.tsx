@@ -64,6 +64,9 @@ const Home = () => {
                 hasSticker={true}
                 hasDots={true}
             />
+            <MosaicContent />
+            <Banner />
+
             <section className="collection-section">
                 <Title
                     text="Our Collection"
@@ -72,7 +75,6 @@ const Home = () => {
                     items={mosaicOptions}
                 />
             </section>
-            <Banner />
             <section className="testimonials-section">
                 <Title
                     text="Testimonials"
@@ -88,7 +90,6 @@ const Home = () => {
                     Schedule an Appointment with us on the available time slots!
                 </p>
             </section>
-            <MosaicContent />
         </Styles>
     )
 }

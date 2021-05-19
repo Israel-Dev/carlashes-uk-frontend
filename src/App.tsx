@@ -15,6 +15,7 @@ import Loading from './loading/Loading';
 const { REACT_APP_SERVER_ADDRESS } = process.env
 
 const LazyHome = React.lazy(() => import('./home/Home'))
+const LazyTreatments = React.lazy(() => import('./treatments/Treatments'))
 const LazyConfirmation = React.lazy(() => import('./confirmation/Confirmation'))
 const LazyProduct = React.lazy(() => import('./product/Product'))
 const LazyContact = React.lazy(() => import('./contact/Contact'))
@@ -24,11 +25,12 @@ const Lazy404 = React.lazy(() => import('./_404/404'))
 const App = () => {
   const [menuOptions, setMenuOptions] = useState<{ name: string, url: string }[]>(
     [
-      { name: 'Chloe', url: 'product?product_ref=8da89u131' },
-      { name: 'Anabelle', url: 'product?product_ref=1297jnasd87' },
-      { name: 'Destiny', url: 'product?product_ref=8s6hhb154a' },
-      { name: 'Amirah', url: 'product?product_ref=ysda663zj6' },
-      { name: 'Aliyah', url: 'product?product_ref=uhsd67531vt' }
+      {name: 'Home', url: ""},
+      { name: 'Our Treatments', url: 'our-treatments' },
+      { name: 'Magnetic Eyelashes', url: 'magnetic-eyelashes' },
+      // { name: 'Destiny', url: 'product?product_ref=8s6hhb154a' },
+      // { name: 'Amirah', url: 'product?product_ref=ysda663zj6' },
+      // { name: 'Aliyah', url: 'product?product_ref=uhsd67531vt' }
     ]
   )
 
@@ -58,9 +60,9 @@ const App = () => {
     }
   }
 
-  useEffect(() => {
-    getMenuOptions()
-  }, [])
+  // useEffect(() => {
+  //   getMenuOptions()
+  // }, [])
 
   return (
     <BrowserRouter>
@@ -71,6 +73,7 @@ const App = () => {
         <Suspense fallback={<Loading/>}>
           <Switch>
             <Route path={["/", "/home"]} component={LazyHome} exact />
+            <Route path="/our-treatments" component={LazyTreatments} />
             <Route path={["/appointment-confirmed", "/purchase-confirmed"]} component={LazyConfirmation} exact />
             <Route path={"/product"} component={LazyProduct} />
             <Route path={["/contact-me", "/contact"]} component={LazyContact} />
