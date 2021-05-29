@@ -20,7 +20,7 @@ const styles = styled.section`
     .calendar-padding {
         width: 100%;
         max-width: 1366px;
-        padding: 0 10%;
+        /* padding: 0 10%; */
     }
 
     .makeStyles-appointment {
@@ -91,9 +91,11 @@ const styles = styled.section`
         opacity: 1;
     }
 
-    /* .text-input-form {
-        background-color: red !important;
-    } */
+    @media(max-width: 875px) {
+        .calendar-padding {
+            padding: 0 10%;
+        }
+    }
 `
 
 export default styles

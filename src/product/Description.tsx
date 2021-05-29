@@ -1,5 +1,5 @@
 import Styles from './Description.styled'
-import Price from './Price'
+import Price from '../shared/Price'
 import Stepper from './Stepper'
 import Button from '../shared/Button'
 import Label from '../nano/Label'

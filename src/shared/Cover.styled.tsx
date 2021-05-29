@@ -25,6 +25,19 @@ const styles = styled.section`
         top: 50%;
         transform: translate(-50%, -50%);
     }
+
+    @media(max-width: 875px) {
+        height: 500px;
+
+        .cover-title {
+            font-size: 2.3em;
+        }
+
+        .cover-image {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
 `
 
 export default styles

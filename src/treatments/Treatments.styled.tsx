@@ -27,6 +27,32 @@ const styles = styled.main`
         text-align: center;
         font-weight: 200;
     }
+
+    .treatments-headlines {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .treatments-calendar {
+        width: 90%;
+        max-width: 1366px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calendar-paragraph {
+        text-align: center;
+        font-weight: 200;
+    }
+
+    @media(max-width: 875px) {
+        .treatments-padding {
+            width: 90%;
+        }
+    }
 `
 
 export default styles

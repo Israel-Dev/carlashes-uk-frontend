@@ -2,7 +2,7 @@ import Styles from './Cover.styled'
 
 interface IProps {
     title: string
-    images: {src: string, alt: string}[]
+    images: { src: string, alt: string }[]
 }
 
 const Cover = (props: IProps) => {
@@ -10,13 +10,14 @@ const Cover = (props: IProps) => {
     const { images, title } = props
 
     const imagesElem = images.map((el, i) => {
-        return <img 
+        return <img
             key={`cover-${i}`}
-            src={el.src} 
-            alt={el.alt} 
+            src={el.src}
+            alt={el.alt}
             width="100%"
             height="auto"
-            />
+            className="cover-image"
+        />
     })
 
     return (
