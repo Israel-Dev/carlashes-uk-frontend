@@ -95,6 +95,7 @@ const styles = styled.section`
     .text-wrapper {
         position: relative;
         width: 100%;
+        margin-bottom: 20px;
         text-align: center;
         display: flex;
         justify-content: space-evenly;
