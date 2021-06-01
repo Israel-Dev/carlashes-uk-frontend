@@ -12,27 +12,60 @@ const Confirmation = () => {
 
     const history = useHistory()
     const location = useLocation()
-    console.log(location)
 
-    const confirmEvent = async () => {
+    const requestBooking = async () => {
         try {
             const event_ref = new URLSearchParams(location.search).get("event_ref")
+            const isCancelled = new URLSearchParams(location.search).get("canceled")
 
-            const response = await axios.post(`${REACT_APP_SERVER_ADDRESS}/calendar/confirmEvent`,
-                {
-                    event_ref
+            if (isCancelled) {
+                const response = await axios.delete(`${REACT_APP_SERVER_ADDRESS}/calendar/cancelBooking`, {
+                    data: {
+                        event_ref
+                    }
+                })
+
+                const status = response.status
+
+                switch (status) {
+                    case 202:
+                        return setMessage({
+                            title: `${status} - ${response.data.title ? response.data.title : "Cancelled"}`,
+                            text: response.data.message as string
+                        })
+                    case 400:
+                        return setMessage({
+                            title: `${status} - ${response.data.title ? response.data.title : "Bad Request"}`,
+                            text: response.data.message as string
+                        })
                 }
-            )
+            }
 
-            const status = response.status
+            const isSuccessful = new URLSearchParams(location.search).get("success")
 
-            switch (status) {
-                case 200:
-                    setMessage({
-                        title: `${status} - Success!`,
-                        text: response.data.message as string
-                    })
-                    break;
+            if (isSuccessful) {
+                const response = await axios.post(`${REACT_APP_SERVER_ADDRESS}/calendar/requestBooking`,
+                    {
+                        event_ref
+                    }
+                )
+
+                const status = response.status
+
+                switch (status) {
+                    case 201:
+                    case 200:
+                        setMessage({
+                            title: `${status} - ${response.data.title ? response.data.title : "Success!"}`,
+                            text: response.data.message as string
+                        })
+                        break;
+                    case 400:
+                        setMessage({
+                            title: `${status} - ${response.data.title ? response.data.title : "Failed"}`,
+                            text: response.data.message as string
+                        })
+                }
             }
         } catch (e) {
             console.error(e)
@@ -53,6 +86,47 @@ const Confirmation = () => {
                             text: "The appointment wasn't confirmed due to an unkown error"
                         })
                 }
+            }
+        }
+    }
+
+    const confirmBooking = async () => {
+        try {
+            const event_ref = new URLSearchParams(location.search).get("event_ref")
+
+            if (!event_ref) return setMessage({
+                title: "No Booking reference",
+                text: "The booking reference was not found"
+            })
+
+            const response = await axios.post(`${REACT_APP_SERVER_ADDRESS}/calendar/confirmBooking`, {
+                event_ref
+            })
+
+            const status = response.status
+
+            console.log(status)
+
+            switch (status) {
+                case 200:
+                    setMessage({
+                        title: `${status} - ${response.data.title ? response.data.title : "Success"}`,
+                        text: response.data.message
+                    })
+            }
+        } catch (e) {
+            console.error(e)
+            const response = e.response
+            const status = response.status
+
+            switch(status) {
+                case 404:
+                case 403:
+                case 400:
+                    setMessage({
+                        title: `${status} - ${response.data.title ? response.data.title : "Failed"}`,
+                        text: response.data.message
+                    })
             }
         }
     }
@@ -104,12 +178,15 @@ const Confirmation = () => {
         const { pathname } = location
 
         switch (pathname) {
+            case "/booking-payment":
+                requestBooking()
+                break
             case "/appointment-confirmed":
-                confirmEvent()
-                break;
+                confirmBooking()
+                break
             case "/purchase-confirmed":
                 confirmPurchase()
-                break;
+                break
         }
     }, [])
 

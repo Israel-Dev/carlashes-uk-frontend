@@ -27,10 +27,7 @@ const App = () => {
     [
       {name: 'Home', url: ""},
       { name: 'Our Treatments', url: 'our-treatments' },
-      { name: 'Magnetic Eyelashes', url: 'magnetic-eyelashes' },
-      // { name: 'Destiny', url: 'product?product_ref=8s6hhb154a' },
-      // { name: 'Amirah', url: 'product?product_ref=ysda663zj6' },
-      // { name: 'Aliyah', url: 'product?product_ref=uhsd67531vt' }
+      { name: 'Magnetic Eyelashes', url: 'magnetic-eyelashes' }
     ]
   )
 
@@ -60,10 +57,6 @@ const App = () => {
     }
   }
 
-  // useEffect(() => {
-  //   getMenuOptions()
-  // }, [])
-
   return (
     <BrowserRouter>
       <Styles className="App">
@@ -74,7 +67,7 @@ const App = () => {
           <Switch>
             <Route path={["/", "/home"]} component={LazyHome} exact />
             <Route path="/our-treatments" component={LazyTreatments} />
-            <Route path={["/appointment-confirmed", "/purchase-confirmed"]} component={LazyConfirmation} exact />
+            <Route path={["/appointment-confirmed", "/booking-payment","/purchase-confirmed"]} component={LazyConfirmation} exact />
             <Route path={"/product"} component={LazyProduct} />
             <Route path={["/contact-me", "/contact"]} component={LazyContact} />
             <Route path={["/about-us"]} component={LazyAbout} />

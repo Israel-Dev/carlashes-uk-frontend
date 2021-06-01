@@ -22,8 +22,12 @@ import colors from '../utils/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faTimesCircle, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import validator from 'validator'
+import { loadStripe } from '@stripe/stripe-js';
 
-const REACT_APP_SERVER_ADDRESS = process.env.REACT_APP_SERVER_ADDRESS
+const { REACT_APP_SERVER_ADDRESS, REACT_APP_STRIPE_PUBLIC_KEY } = process.env
+
+const stripePromise = loadStripe(REACT_APP_STRIPE_PUBLIC_KEY as string)
+
 
 const purpleTheme = createMuiTheme({
     palette: {
@@ -109,11 +113,10 @@ const FormBasicLayout = ({ onFieldChange, appointmentData, ...restProps }: any, 
         ) return true
     }
 
-    const [treatments, setTreatments] = useState<{ name: string, price: string, ref: string }[]>([])
+    const [treatments, setTreatments] = useState<{ name: string, price: string, ref: string, schedulePrice: string }[]>([])
 
     useEffect(() => {
         getTreatments()
-
     }, [])
 
     const getTreatments = async () => {
@@ -128,14 +131,10 @@ const FormBasicLayout = ({ onFieldChange, appointmentData, ...restProps }: any, 
         }
     }
 
-    // Fetch treatment options
+    // Treatment options
     const options = treatments.map((treatment, i) => (
-        { id: treatment.ref, text: treatment.name }
+        { id: treatment.ref, text: `${treatment.name} | Scheduling Price: £${treatment.schedulePrice}` }
     ))
-
-    // if (!appointmentData?.treatment && options.length) {
-    //     onFieldChange({ treatment: options[0] && options[0].id ? options[0].id : null})
-    // }
 
     useEffect(() => {
         if (hasAllFields()) return setTimeout(() => callback(true), 1500)
@@ -255,6 +254,22 @@ const Calendar = () => {
         getEvents()
     }, [])
 
+    const payBooking = async (e: ChangeSet) => {
+        try {
+            const stripe = await stripePromise
+
+            const response = await axios.post(`${REACT_APP_SERVER_ADDRESS}/calendar/payBooking`, { ...(e.added) })
+
+            if (response.status === 200) {
+                await stripe?.redirectToCheckout({
+                    sessionId: response.data.sessionID
+                })
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
     const requestEvent = async (e: ChangeSet) => {
         try {
             const response = await axios.post(`${REACT_APP_SERVER_ADDRESS}/calendar/requestEvent`, { ...(e.added) })
@@ -329,7 +344,7 @@ const Calendar = () => {
                                 timeTableCellComponent={WeekTimeTableCell}
                             />
                             <EditingState
-                                onCommitChanges={requestEvent}
+                                onCommitChanges={payBooking}
                             />
                             <DayView
                                 startDayHour={9}
