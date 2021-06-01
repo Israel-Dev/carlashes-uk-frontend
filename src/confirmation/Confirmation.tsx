@@ -1,14 +1,21 @@
 import Styles from './Confirmation.styled'
 import Modal from '../shared/Modal'
 import { useHistory, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { ReactElement, useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 
 const { REACT_APP_SERVER_ADDRESS } = process.env
 
 const Confirmation = () => {
-    const [message, setMessage] = useState<{ title: string, text: string }>()
+    const [message, setMessage] = useState<{ title: string | ReactElement, text: string }>(
+        {
+            title: <FontAwesomeIcon icon={faCircleNotch} spin={true}/>,
+            text: ""
+        }
+    )
 
     const history = useHistory()
     const location = useLocation()
