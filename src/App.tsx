@@ -16,6 +16,7 @@ const { REACT_APP_SERVER_ADDRESS } = process.env
 
 const LazyHome = React.lazy(() => import('./home/Home'))
 const LazyTreatments = React.lazy(() => import('./treatments/Treatments'))
+const LazyProductsPage = React.lazy(() => import('./products/Products'))
 const LazyConfirmation = React.lazy(() => import('./confirmation/Confirmation'))
 const LazyProduct = React.lazy(() => import('./product/Product'))
 const LazyContact = React.lazy(() => import('./contact/Contact'))
@@ -67,6 +68,7 @@ const App = () => {
           <Switch>
             <Route path={["/", "/home"]} component={LazyHome} exact />
             <Route path="/our-treatments" component={LazyTreatments} />
+            <Route path="/magnetic-eyelashes" component={LazyProductsPage}/>
             <Route path={["/appointment-confirmed", "/booking-payment","/purchase-confirmed"]} component={LazyConfirmation} exact />
             <Route path={"/product"} component={LazyProduct} />
             <Route path={["/contact-me", "/contact"]} component={LazyContact} />
