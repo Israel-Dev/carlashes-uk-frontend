@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const styles = styled.main`
     display: flex;
@@ -31,12 +31,16 @@ const styles = styled.main`
         align-items: center;
         flex-direction: column;
         width: 100%;
+        margin-bottom: 100px;
     }
 
     .calendar-paragraph {
         /* margin: 0; */
         font-weight: 200;
+        margin: 0;
+        padding: 0;
+        text-align: center;
     }
-`
+`;
 
-export default styles
+export default styles;

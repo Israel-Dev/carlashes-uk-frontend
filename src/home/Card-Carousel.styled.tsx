@@ -1,25 +1,24 @@
-import styled, { css, keyframes } from 'styled-components'
-import colors from '../utils/colors'
+import styled, { css, keyframes } from 'styled-components';
+import colors from '../utils/colors';
 
 interface IStyleProps {
-    left: number
+    left: number;
 }
 
-export const cardMargin = 15
-
+export const cardMargin = 15;
 
 const styles = styled.section`
     position: relative;
-    height: 700px;
+    height: 850px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
     overflow: hidden;
-    
+
     :after {
-        content: "";
+        content: '';
         background-color: ${colors['light-gray']};
         width: 80vw;
         height: 1px;
@@ -48,20 +47,20 @@ const styles = styled.section`
 
     .left-arrow {
         padding-left: 40px;
-        transition: all ease-in-out .3s;
+        transition: all ease-in-out 0.3s;
     }
 
     .right-arrow {
         margin-right: 40px;
-        transition: all ease-in-out .3s;
+        transition: all ease-in-out 0.3s;
     }
 
     .left-arrow:hover,
     .right-arrow:hover {
         cursor: pointer;
         transform: scale(1.2);
-        transition: all ease-in-out .3s;
+        transition: all ease-in-out 0.3s;
     }
-`
+`;
 
-export default styles
+export default styles;
