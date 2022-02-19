@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { BorderRadius, colors } from 'utils/stylesheet';
 
 const styles = styled.div`
     width: 150px;
@@ -10,7 +10,7 @@ const styles = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: 50%;
+    border-radius: ${BorderRadius.half};
 
     .number,
     .text {
@@ -19,12 +19,12 @@ const styles = styled.div`
     }
 
     .number {
-        color: ${colors.purple}
-    } 
+        color: ${colors.purple};
+    }
 
     .text {
         font-size: 30px;
         color: ${colors['dark-gray']};
     }
-`
-export default styles
+`;
+export default styles;

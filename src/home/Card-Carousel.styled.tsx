@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import colors from '../utils/colors';
+import { colors } from '../utils/stylesheet';
 
 interface IStyleProps {
     left: number;

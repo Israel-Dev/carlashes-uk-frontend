@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const styles = styled.section`
     position: relative;
     width: 100%;
     height: 350px;
     overflow: hidden;
-    
+
     .banner-text-wrapper {
         position: absolute;
         height: 100%;
@@ -28,7 +28,7 @@ const styles = styled.section`
     }
 
     .author {
-        margin: 40px 0 0 0; 
+        margin: 40px 0 0 0;
     }
 
     .banner-image {
@@ -40,7 +40,7 @@ const styles = styled.section`
 
     :before {
         position: absolute;
-        content: "";
+        content: '';
         height: 100%;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.747);
@@ -50,14 +50,14 @@ const styles = styled.section`
     .visible {
         /* opacity: 1; */
         left: 0;
-        transition: all ease-in-out .4s;
+        transition: all ease-in-out 0.4s;
     }
 
     .hidden {
         position: absolute;
         left: 100%;
         /* opacity: 0; */
-        transition: all ease-in-out .4s;
+        transition: all ease-in-out 0.4s;
     }
 
     .banner-carousel-content {
@@ -69,9 +69,9 @@ const styles = styled.section`
         left: 0;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         height: 450px;
     }
-`
+`;
 
-export default styles
+export default styles;

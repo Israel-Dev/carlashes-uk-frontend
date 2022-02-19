@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
-import Styles from './Loading.styled'
-import colors from '../utils/colors'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
+import Styles from './Loading.styled';
+import { colors } from '../utils/stylesheet';
 
 const Loading = () => {
     return (
@@ -15,7 +15,7 @@ const Loading = () => {
                 />
             </article>
         </Styles>
-    )
-}
+    );
+};
 
-export default Loading
+export default Loading;

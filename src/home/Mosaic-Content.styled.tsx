@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { BorderRadius } from 'utils/stylesheet';
 
 const styles = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    width:100%;
+    width: 100%;
     margin: 40px;
 
     .mosaic-content-container {
@@ -24,7 +25,7 @@ const styles = styled.section`
     }
 
     .image {
-        border-radius: 25px;
+        border-radius: ${BorderRadius.large};
     }
 
     .left-wrapper {
@@ -108,7 +109,7 @@ const styles = styled.section`
         text-align: center;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         .left-side-wrapper,
         .right-side-wrapper,
         .center-top-left,
@@ -126,6 +127,6 @@ const styles = styled.section`
             margin-bottom: 10%;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
 
 const styles = styled.section`
     max-height: 700px;
@@ -20,7 +19,7 @@ const styles = styled.section`
 
     .carousel-maintitle {
         color: white;
-        margin: .3em 0;
+        margin: 0.3em 0;
     }
 
     .carousel-subtitle {
@@ -60,8 +59,13 @@ const styles = styled.section`
         width: 100%;
         height: 100%;
         z-index: 1;
-        background: rgb(91,0,38);
-        background: linear-gradient(140deg,rgb(153 120 89 / 30%) 50%,rgba(178,109,180,0.04) 80%,rgba(0,0,0,0) 100%);
+        background: rgb(91, 0, 38);
+        background: linear-gradient(
+            140deg,
+            rgb(153 120 89 / 30%) 50%,
+            rgba(178, 109, 180, 0.04) 80%,
+            rgba(0, 0, 0, 0) 100%
+        );
         position: absolute;
     }
 
@@ -96,13 +100,13 @@ const styles = styled.section`
 
     .down-arrow-icon {
         position: relative;
-        transition: all ease-in-out .2s;
+        transition: all ease-in-out 0.2s;
     }
 
     .down-arrow-icon:hover {
         cursor: pointer;
         transform: scale(1.2);
-        transition: all ease-in-out .2s;
+        transition: all ease-in-out 0.2s;
     }
 
     .down-arrow-background {
@@ -115,7 +119,7 @@ const styles = styled.section`
         transform: translate(25%, 25%);
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         min-height: 500px;
 
         .carousel-maintitle {
@@ -123,7 +127,7 @@ const styles = styled.section`
         }
 
         .carousel-subtitle {
-            font-size: .9em;
+            font-size: 0.9em;
             max-width: 50%;
         }
 
@@ -133,7 +137,7 @@ const styles = styled.section`
         }
     }
 
-    @media(max-width: 545px) { 
+    @media (max-width: 545px) {
         .carousel-dots-wrapper {
             padding-left: 0;
             display: flex;
@@ -144,6 +148,6 @@ const styles = styled.section`
             display: none;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

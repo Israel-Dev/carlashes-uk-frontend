@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 interface IStyleProps {
-    isWhite: boolean | undefined
+    isWhite: boolean | undefined;
 }
 
 const styles = styled.header`
@@ -16,7 +16,8 @@ const styles = styled.header`
     padding: 40px 0;
 
     .title-text {
-        color: ${ (props: IStyleProps) => props.isWhite ? "white" : colors.purple};
+        color: ${(props: IStyleProps) =>
+            props.isWhite ? 'white' : colors.purple};
         margin: 0;
     }
 
@@ -35,8 +36,9 @@ const styles = styled.header`
         width: 25%;
         max-width: 415px;
         height: 1px;
-        content: "";
-        background-color: ${(props: IStyleProps) => props.isWhite ? "white" : colors['dark-gray']};
+        content: '';
+        background-color: ${(props: IStyleProps) =>
+            props.isWhite ? 'white' : colors['dark-gray']};
         transform: translateX(-100%);
         margin-right: 1.5%;
     }
@@ -46,7 +48,7 @@ const styles = styled.header`
         margin-right: -1.5%;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         max-width: 85%;
 
         .title-text {
@@ -56,7 +58,7 @@ const styles = styled.header`
         ::before,
         ::after {
             width: 15%;
-            margin-right:0;
+            margin-right: 0;
         }
 
         ::before {
@@ -80,6 +82,6 @@ const styles = styled.header`
             right: 0;
         } */
     }
-`
+`;
 
-export default styles
+export default styles;

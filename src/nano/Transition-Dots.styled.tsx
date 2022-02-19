@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { BorderRadius, colors } from 'utils/stylesheet';
 
 const styles = styled.div`
     width: 10vw;
@@ -10,8 +10,9 @@ const styles = styled.div`
     .circle {
         height: 15px;
         width: 15px;
-        background-color: ${(props: {isGray: boolean}) => props.isGray ? colors['light-gray'] : "white"};
-        border-radius: 50%;
+        background-color: ${(props: { isGray: boolean }) =>
+            props.isGray ? colors['light-gray'] : 'white'};
+        border-radius: ${BorderRadius.half};
         display: inline-block;
         transition: all ease-in-out 1s;
     }
@@ -19,7 +20,7 @@ const styles = styled.div`
     .circle:hover {
         cursor: pointer;
         transform: scale(1.3);
-        transition: all ease-in-out .3s;
+        transition: all ease-in-out 0.3s;
     }
 
     .active {
@@ -32,9 +33,9 @@ const styles = styled.div`
         cursor: auto;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         min-width: 200px;
     }
-`
+`;
 
-export default styles
+export default styles;

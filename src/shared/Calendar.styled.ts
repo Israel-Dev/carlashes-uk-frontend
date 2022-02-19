@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components'
-import colors from '../utils/colors'
+import styled, { keyframes } from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const WobbleAnimation = keyframes`
     from {
@@ -9,7 +9,7 @@ const WobbleAnimation = keyframes`
     to {
         transform: translateY(-20%) rotate(25deg);
     }
-`
+`;
 
 const styles = styled.section`
     width: 100%;
@@ -68,11 +68,11 @@ const styles = styled.section`
     .MuiButton-text {
         opacity: 1;
         background-color: ${colors.purple};
-        color: white
+        color: white;
     }
 
     .MuiButton-text:disabled {
-        opacity: .5;
+        opacity: 0.5;
         color: white;
     }
 
@@ -91,11 +91,11 @@ const styles = styled.section`
         opacity: 1;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         .calendar-padding {
             padding: 0 10%;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

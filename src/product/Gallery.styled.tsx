@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { BorderRadius, colors } from 'utils/stylesheet';
 
 const styles = styled.section`
     position: relative;
@@ -17,17 +17,17 @@ const styles = styled.section`
         width: 100%;
         height: 600px;
         object-fit: cover;
-        border-radius: 20px;
+        border-radius: ${BorderRadius.large};
     }
 
     .visible {
         opacity: 1;
-        transition: all ease-in-out .4s;
+        transition: all ease-in-out 0.4s;
     }
 
     .hidden {
         opacity: 0;
-        transition: all ease-in-out .4s;
+        transition: all ease-in-out 0.4s;
         position: absolute;
         top: 0;
         left: 0;
@@ -42,7 +42,7 @@ const styles = styled.section`
         align-items: center;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -56,19 +56,19 @@ const styles = styled.section`
 
         .hidden,
         .visible {
-            transition: all ease-in-out .1s;
+            transition: all ease-in-out 0.1s;
         }
 
         .gallery-header-title-mobile {
             display: flex;
             width: 85%;
-            font-size: .7em;
+            font-size: 0.7em;
         }
 
         .gallery-image-article {
             width: 90%;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

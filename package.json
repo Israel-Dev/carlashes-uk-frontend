@@ -29,8 +29,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "env-cmd -f ./env/dev.env react-scripts start",
-    "start-prod": "env-cmd -f ./env/prod.env react-scripts start",
+    "start:dev": "env-cmd -f ./env/dev.env react-scripts start",
+    "start:prod": "env-cmd -f ./env/prod.env react-scripts start",
     "build": "env-cmd -f ./env/prod.env react-scripts build",
     "deploy": "npm run build && netlify deploy --prod --dir=./build",
     "build-dev": "env-cmd -f ./env/dev.env react-scripts build",

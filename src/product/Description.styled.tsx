@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const styles = styled.section`
     display: flex;
@@ -64,7 +64,7 @@ const styles = styled.section`
 
     .share-icon:hover {
         cursor: pointer;
-        transition: all ease-in-out .1s;
+        transition: all ease-in-out 0.1s;
     }
 
     .clipboard {
@@ -72,11 +72,11 @@ const styles = styled.section`
     }
 
     .clipboard:active {
-        transition: all ease-in-out .1s;
+        transition: all ease-in-out 0.1s;
         color: ${colors['alpha-pink']};
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         .descrption-header {
             display: none;
         }
@@ -103,7 +103,6 @@ const styles = styled.section`
             margin-top: 10%;
         }
     }
+`;
 
-`
-
-export default styles
+export default styles;

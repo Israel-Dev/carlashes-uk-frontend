@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const styles = styled.main`
     position: fixed;
@@ -10,6 +10,6 @@ const styles = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
-`
+`;
 
-export default styles
+export default styles;

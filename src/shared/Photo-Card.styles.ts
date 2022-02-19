@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { BorderRadius, colors } from 'utils/stylesheet';
 
 const styles = styled.article`
     position: relative;
@@ -12,15 +12,15 @@ const styles = styled.article`
         height: 400px;
         width: 400px;
         object-fit: cover;
-        border-radius: 50%;
+        border-radius: ${BorderRadius.half};
         z-index: 10;
     }
 
     .photo-card-text-div {
         margin-left: -5%;
         width: 40%;
-        background:${colors['purple-gradient']};
-        border-radius: 10px;
+        background: ${colors['purple-gradient']};
+        border-radius: ${BorderRadius.medium};
         padding: 70px 2% 70px 6%;
         color: white;
     }
@@ -29,7 +29,7 @@ const styles = styled.article`
         font-weight: 200;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         flex-direction: column;
 
         .photo-card-img {
@@ -48,6 +48,6 @@ const styles = styled.article`
             text-align: center;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

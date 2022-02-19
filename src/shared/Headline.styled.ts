@@ -1,15 +1,15 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
-const styles  = styled.section`
+const styles = styled.section`
     width: 100%;
     height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    flex-direction: ${(props: {reverse: boolean}) => props.reverse ? "row-reverse" : "row"};
-
+    flex-direction: ${(props: { reverse: boolean }) =>
+        props.reverse ? 'row-reverse' : 'row'};
 
     .headline-aside {
         position: relative;
@@ -27,9 +27,14 @@ const styles  = styled.section`
     .headline-article {
         height: 100%;
         width: 50%;
-        background: linear-gradient(180deg,rgba(0,0,0,0.1) 0%,rgba(255,255,255,0) 100%);
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
         background-color: ${colors.pink};
-        text-align: ${(props: {reverse: boolean}) => props.reverse ? "right" : "left"};
+        text-align: ${(props: { reverse: boolean }) =>
+            props.reverse ? 'right' : 'left'};
         display: flex;
         justify-content: center;
         align-items: center;
@@ -64,12 +69,12 @@ const styles  = styled.section`
         height: 100%;
         width: 100%;
         opacity: 1;
-        transition: all .5s ease-in-out;
+        transition: all 0.5s ease-in-out;
     }
 
     .hidden {
         opacity: 0;
-        transition: all .5s ease-in-out;
+        transition: all 0.5s ease-in-out;
     }
 
     .treatment-image-hidden {
@@ -79,10 +84,10 @@ const styles  = styled.section`
         left: 0;
         height: 100%;
         width: 100%;
-        transition: all .5s ease-in-out;
+        transition: all 0.5s ease-in-out;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         flex-direction: column;
         height: auto;
 
@@ -101,7 +106,7 @@ const styles  = styled.section`
         }
 
         .headline-description {
-            font-size: .9em;
+            font-size: 0.9em;
         }
 
         .headline-footer {
@@ -110,6 +115,6 @@ const styles  = styled.section`
             justify-content: space-evenly;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

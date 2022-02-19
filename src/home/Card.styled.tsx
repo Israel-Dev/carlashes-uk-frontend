@@ -1,14 +1,14 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
-export const desktopCardWidth = 280
+export const desktopCardWidth = 280;
 
 const styles = styled.article`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: all ease-in-out .3s;
+    transition: all ease-in-out 0.3s;
 
     /* :hover {
         cursor: pointer;
@@ -56,6 +56,6 @@ const styles = styled.article`
         font-weight: 200;
         text-align: center;
     }
-`
+`;
 
-export default styles
+export default styles;

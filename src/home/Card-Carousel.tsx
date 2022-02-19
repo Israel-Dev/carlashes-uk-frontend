@@ -15,7 +15,7 @@ import {
     faChevronCircleLeft,
     faChevronCircleRight,
 } from '@fortawesome/free-solid-svg-icons';
-import colors from '../utils/colors';
+import { colors } from '../utils/stylesheet';
 
 import { desktopCardWidth } from './Card.styled';
 import { cardMargin } from './Card-Carousel.styled';

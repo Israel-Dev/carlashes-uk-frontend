@@ -1,11 +1,15 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const styles = styled.footer`
     width: 100vw;
     padding: 15px;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0) 100%);
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
     background-color: ${colors.pink};
     display: flex;
     justify-content: center;
@@ -25,6 +29,7 @@ const styles = styled.footer`
     .top-section {
         width: 100%;
         height: 100px;
+        user-select: none;
     }
 
     .logo-image {
@@ -37,6 +42,7 @@ const styles = styled.footer`
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
+        user-select: none;
     }
 
     .left-corner {
@@ -54,7 +60,6 @@ const styles = styled.footer`
         margin: 10px 0;
         color: ${colors.purple};
     }
-
 
     .right-text,
     .bottom-text {
@@ -82,11 +87,11 @@ const styles = styled.footer`
     .social-midia-wrapper {
         width: 15%;
         display: flex;
-        justify-content:space-between;
+        justify-content: space-between;
         align-items: center;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         padding: 0;
 
         .footer-padding {
@@ -125,6 +130,6 @@ const styles = styled.footer`
             width: 50%;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

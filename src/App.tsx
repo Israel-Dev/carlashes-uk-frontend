@@ -12,6 +12,7 @@ const { REACT_APP_SERVER_ADDRESS } = process.env;
 
 const LazyHome = React.lazy(() => import('./home/Home'));
 const LazyTreatments = React.lazy(() => import('./treatments/Treatments'));
+const LazyTreatment = React.lazy(() => import('./treatment/Treatment'));
 const LazyProductsPage = React.lazy(() => import('./products/Products'));
 const LazyConfirmation = React.lazy(
     () => import('./confirmation/Confirmation')
@@ -92,6 +93,7 @@ const App = () => {
                             component={LazyContact}
                         />
                         <Route path={['/about-us']} component={LazyAbout} />
+                        <Route path={'/treatment'} component={LazyTreatment}/>
                         <Route component={Lazy404} />
                     </Switch>
                 </Suspense>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from './utils/colors';
+import { colors } from './utils/stylesheet';
 
 const styles = styled.main`
     font-size: 18px;

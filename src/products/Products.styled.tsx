@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const styles = styled.main`
     width: 100%;
@@ -38,11 +38,11 @@ const styles = styled.main`
         background: ${colors['brown-to-white-gradient']};
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         .products-page-padding {
             width: 90%;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const styles = styled.main`
     display: flex;
@@ -24,7 +24,8 @@ const styles = styled.main`
     }
 
     .about-logo {
-        filter: invert(19%) sepia(12%) saturate(5897%) hue-rotate(160deg) brightness(60%) contrast(98%);
+        filter: invert(19%) sepia(12%) saturate(5897%) hue-rotate(160deg)
+            brightness(60%) contrast(98%);
     }
 
     .about-paragraph {
@@ -61,7 +62,7 @@ const styles = styled.main`
         justify-content: space-evenly;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         .about-header {
             margin: 150px 0 0 0;
         }
@@ -96,6 +97,6 @@ const styles = styled.main`
             flex-direction: column;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

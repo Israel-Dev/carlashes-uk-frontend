@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const styles = styled.article`
     .price-span {
@@ -8,11 +8,11 @@ const styles = styled.article`
         color: ${colors.purple};
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         .price-span {
             font-size: 2em;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

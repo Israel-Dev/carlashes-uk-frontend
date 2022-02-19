@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { BorderRadius, colors } from 'utils/stylesheet';
 
 const Styles = styled.nav`
     position: absolute;
@@ -45,16 +45,16 @@ const Styles = styled.nav`
         color: white;
         cursor: pointer;
         user-select: none;
-        transition: all ease-in-out .2s;
+        transition: all ease-in-out 0.2s;
     }
 
     .menu-option:hover {
         background-color: white;
-        border-radius: 10px;
+        border-radius: ${BorderRadius.medium};
         padding: 10px;
         color: ${colors.purple};
         transform: scale(1.2);
-        transition: all ease-in-out .2s;
+        transition: all ease-in-out 0.2s;
     }
 
     .menu-list {
@@ -63,7 +63,7 @@ const Styles = styled.nav`
         align-items: center;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         /* margin-top: 20px; */
         padding-top: 0;
         justify-content: flex-start;
@@ -95,14 +95,14 @@ const Styles = styled.nav`
         .menu-options-wrapper-mobile {
             max-height: 0;
             overflow: hidden;
-            transition: all ease-in-out .3s;
+            transition: all ease-in-out 0.3s;
             width: 100%;
             background-color: ${colors['dark-brown']};
         }
 
         .open {
             max-height: 300px;
-            transition: all ease-in-out .3s;
+            transition: all ease-in-out 0.3s;
         }
 
         .menu-list {
@@ -119,6 +119,6 @@ const Styles = styled.nav`
             text-align: center;
         }
     }
-`
+`;
 
-export default Styles
+export default Styles;

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { BorderRadius, colors } from 'utils/stylesheet';
 
 const styles = styled.section`
     width: 100%;
@@ -14,11 +14,12 @@ const styles = styled.section`
     align-items: center;
     flex-direction: column;
 
-    ${(props: { isVisible: boolean | null }) => props.isVisible || props.isVisible === null ? `
+    ${(props: { isVisible: boolean | null }) =>
+        props.isVisible || props.isVisible === null
+            ? `
         visibility: visible;
         `
-        : null
-    }
+            : null}
 
     .modal {
         height: 100%;
@@ -29,7 +30,7 @@ const styles = styled.section`
         flex-direction: column;
         /* background-color: ${colors.pink}; */
         background-color: ${colors['alpha-pink']};
-        transition: all ease-in-out .3s;
+        transition: all ease-in-out 0.3s;
         opacity: 0;
     }
 
@@ -39,7 +40,7 @@ const styles = styled.section`
         max-width: 475px;
         padding-bottom: 25px;
         background-color: white;
-        border-radius: 5px;
+        border-radius: ${BorderRadius.small};
         display: flex;
         justify-content: center;
         align-items: center;
@@ -49,12 +50,12 @@ const styles = styled.section`
     }
 
     .visible {
-        transition: all ease-in-out .3s;
+        transition: all ease-in-out 0.3s;
         opacity: 1;
     }
 
     .title {
-        border-radius: 5px 5px 0 0;
+        border-radius: ${BorderRadius.small} ${BorderRadius.small} 0 0;
         width: 100%;
         margin: 0;
         padding: 40px 0 30px 0;
@@ -70,11 +71,11 @@ const styles = styled.section`
         font-weight: 200;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         .modal-box {
             width: 85%;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

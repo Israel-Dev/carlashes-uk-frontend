@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { colors } from '../utils/stylesheet';
 
 const styles = styled.article`
     display: flex;
@@ -42,13 +42,13 @@ const styles = styled.article`
         color: white;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         align-items: center;
 
         .stepper-container {
             transform: scale(1.2);
         }
     }
-`
+`;
 
-export default styles
+export default styles;

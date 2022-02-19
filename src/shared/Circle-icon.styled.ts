@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import colors from '../utils/colors'
+import styled from 'styled-components';
+import { BorderRadius, colors } from 'utils/stylesheet';
 
 const styles = styled.article`
     display: flex;
@@ -11,7 +11,7 @@ const styles = styled.article`
         width: 65px;
         height: 65px;
         padding: 10px;
-        border-radius: 50%;
+        border-radius: ${BorderRadius.half};
         background-color: ${colors.purple};
         display: flex;
         justify-content: center;
@@ -22,6 +22,6 @@ const styles = styled.article`
         text-align: center;
         font-weight: 200;
     }
-`
+`;
 
-export default styles
+export default styles;
