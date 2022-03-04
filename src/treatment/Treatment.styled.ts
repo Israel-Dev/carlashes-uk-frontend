@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const styles = styled.main`
     display: flex;
@@ -6,6 +6,19 @@ const styles = styled.main`
     align-items: center;
     flex-direction: column;
     margin-top: 18vh;
-`
 
-export default styles
+    .treatments-calendar {
+        width: 90%;
+        max-width: 1366px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calendar-paragraph {
+        text-align: center;
+        font-weight: 200;
+    }
+`;
+
+export default styles;

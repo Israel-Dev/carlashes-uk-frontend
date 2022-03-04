@@ -1,6 +1,7 @@
 import Styles from './Treatment.styled';
-import { Gradient, Title } from '../shared';
+import { Calendar, Gradient, Title } from '../shared';
 import PhotoCarousel from './Photo-Carousel';
+import PhotoWall from './Photo-Wall';
 
 const Treatment = () => {
     return (
@@ -8,6 +9,14 @@ const Treatment = () => {
             <Gradient />
             <Title text={'Treatment'} />
             <PhotoCarousel />
+            <PhotoWall />
+            <section className="treatments-calendar">
+                <Title text="Agenda" />
+                <Calendar />
+                <p className="calendar-paragraph">
+                    Schedule an Appointment with us on the available time slots!
+                </p>
+            </section>
         </Styles>
     );
 };

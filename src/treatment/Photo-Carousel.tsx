@@ -16,11 +16,11 @@ import {
 interface Props {}
 
 const items = [
-    { img: Card_01, alt: 'Card 01' },
-    { img: Card_02, alt: 'Card 02' },
-    { img: Card_03, alt: 'Card 03' },
-    { img: Card_04, alt: 'Card 04' },
-    { img: Card_05, alt: 'Card 05' },
+    { img: Card_01, alt: 'Classics' },
+    { img: Card_02, alt: 'Light Volume' },
+    { img: Card_03, alt: 'Russians Volume' },
+    { img: Card_04, alt: 'Mega Volume' },
+    { img: Card_05, alt: 'Some text' },
 ];
 
 const PhotoCarousel = ({}: Props) => {
