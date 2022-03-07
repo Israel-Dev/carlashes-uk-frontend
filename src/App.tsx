@@ -93,7 +93,10 @@ const App = () => {
                             component={LazyContact}
                         />
                         <Route path={['/about-us']} component={LazyAbout} />
-                        <Route path={'/treatment'} component={LazyTreatment}/>
+                        <Route
+                            path={'/treatment/:ref'}
+                            component={LazyTreatment}
+                        />
                         <Route component={Lazy404} />
                     </Switch>
                 </Suspense>

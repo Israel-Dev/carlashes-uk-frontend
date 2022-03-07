@@ -13,7 +13,9 @@ import {
     faChevronCircleRight,
 } from '@fortawesome/free-solid-svg-icons';
 
-interface Props {}
+interface Props {
+    items: { img: string; alt: string }[];
+}
 
 const items = [
     { img: Card_01, alt: 'Classics' },
@@ -23,7 +25,7 @@ const items = [
     { img: Card_05, alt: 'Some text' },
 ];
 
-const PhotoCarousel = ({}: Props) => {
+const PhotoCarousel = ({ items }: Props) => {
     const [activeImage, setActiveImage] = useState<number>(
         items.length % 2 === 0
             ? Math.floor(items.length / 2) - 1

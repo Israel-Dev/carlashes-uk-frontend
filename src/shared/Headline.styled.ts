@@ -52,6 +52,10 @@ const styles = styled.section`
         font-style: italic;
     }
 
+    .headline-title:hover {
+        cursor: pointer;
+    }
+
     .headline-description {
         font-weight: 200;
     }
