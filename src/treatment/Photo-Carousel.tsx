@@ -1,11 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Styles from './Photo-Carousel.styled';
 import { LabelCard, Photo } from '../shared';
-import Card_01 from '../assets/Card_01.webp';
-import Card_02 from '../assets/Card_02.webp';
-import Card_03 from '../assets/Card_03.webp';
-import Card_04 from '../assets/Card_04.webp';
-import Card_05 from '../assets/Card_05.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { colors } from 'utils/stylesheet';
 import {
@@ -17,20 +12,17 @@ interface Props {
     items: { img: string; alt: string }[];
 }
 
-const items = [
-    { img: Card_01, alt: 'Classics' },
-    { img: Card_02, alt: 'Light Volume' },
-    { img: Card_03, alt: 'Russians Volume' },
-    { img: Card_04, alt: 'Mega Volume' },
-    { img: Card_05, alt: 'Some text' },
-];
-
 const PhotoCarousel = ({ items }: Props) => {
-    const [activeImage, setActiveImage] = useState<number>(
-        items.length % 2 === 0
+    const [activeImage, setActiveImage] = useState<number>(0);
+
+    const getMiddleImage = () =>
+        items.length % 2 === 0 && Math.floor(items.length / 2) > 0
             ? Math.floor(items.length / 2) - 1
-            : Math.floor(items.length / 2)
-    );
+            : Math.floor(items.length / 2);
+
+    useEffect(() => {
+        setActiveImage(getMiddleImage());
+    }, [items]);
 
     const handleArrowClick = (direction: 'right' | 'left') => {
         if (activeImage < items.length - 1 && direction === 'right') {

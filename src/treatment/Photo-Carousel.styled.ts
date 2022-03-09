@@ -18,6 +18,7 @@ const indexPostions: { [key: number]: number } = {
     2: 0,
     3: -positionToChange,
     4: -positionToChange * 2,
+    5: -positionToChange * 3,
 };
 
 const styles = styled.section`
