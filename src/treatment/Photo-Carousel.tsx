@@ -9,10 +9,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 interface Props {
+    setTreatmentSubType: (value: number) => void;
     items: { img: string; alt: string }[];
 }
 
-const PhotoCarousel = ({ items }: Props) => {
+const PhotoCarousel = ({ items, setTreatmentSubType }: Props) => {
     const [activeImage, setActiveImage] = useState<number>(0);
 
     const getMiddleImage = () =>
@@ -22,7 +23,12 @@ const PhotoCarousel = ({ items }: Props) => {
 
     useEffect(() => {
         setActiveImage(getMiddleImage());
+        setTreatmentSubType(getMiddleImage());
     }, [items]);
+
+    useEffect(() => {
+        setTreatmentSubType(activeImage);
+    }, [activeImage]);
 
     const handleArrowClick = (direction: 'right' | 'left') => {
         if (activeImage < items.length - 1 && direction === 'right') {

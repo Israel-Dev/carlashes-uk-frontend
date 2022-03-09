@@ -3,8 +3,6 @@ import { colors } from 'utils/stylesheet';
 
 const leftMargin = '10vw';
 
-const imgHeight = 8;
-
 const styles = styled.section`
     position: relative;
     width: 100vw;
@@ -44,6 +42,10 @@ const styles = styled.section`
         position: absolute;
         top: 4vw;
         left: 65vw;
+    }
+
+    .img-0 {
+        max-height: 400px;
     }
 
     .img-1 {

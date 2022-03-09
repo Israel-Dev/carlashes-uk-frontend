@@ -33,7 +33,7 @@ const Treatment = () => {
     const { ref } = useParams<ParamTypes>();
     const [treatmentTitle, setTreatmentTitle] = useState('');
     const [treatmentCarouselImages, setTreatmentCarouselImages] = useState<
-        { img: string; alt: string }[]
+        { img: string; alt: string; ref: string }[]
     >([]);
 
     const getTreatmentData = async () => {
@@ -52,9 +52,9 @@ const Treatment = () => {
                     treatmentData.subTypes.map((subType) => ({
                         img: subType.mainImage,
                         alt: subType.name,
+                        ref: subType.ref,
                     }))
                 );
-                console.log('treatmentData', treatmentData);
             }
         } catch (e) {
             console.error(e);
@@ -65,12 +65,49 @@ const Treatment = () => {
         getTreatmentData();
     }, []);
 
+    const [treatmentSubType, setTreatmentSubType] = useState<number>(0);
+    const [treatmentSubTypeImages, setTreatmentSubTypeImages] = useState<
+        string[]
+    >([]);
+
+    const getSubTypeImages = async (subTypeRef: string) => {
+        try {
+            const treatmentRef = ref && ref.split('=')[1];
+
+            if (treatmentRef) {
+                const subTypeImages: string[] = (
+                    await axios.get(
+                        `${REACT_APP_SERVER_ADDRESS}/resource/getTreatmentSubTypeImages?treatmentRef=${treatmentRef}&subTypeRef=${subTypeRef}`
+                    )
+                )?.data;
+
+                setTreatmentSubTypeImages(subTypeImages);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    useEffect(() => {
+        if (treatmentCarouselImages[treatmentSubType]) {
+            getSubTypeImages(treatmentCarouselImages[treatmentSubType].ref);
+        }
+    }, [treatmentSubType]);
+
     return (
         <Styles className="treatment-page-wrapper">
             <Gradient />
             <Title text={treatmentTitle} />
-            <PhotoCarousel items={treatmentCarouselImages} />
-            <PhotoWall />
+            <PhotoCarousel
+                items={treatmentCarouselImages}
+                setTreatmentSubType={setTreatmentSubType}
+            />
+            <PhotoWall
+                items={treatmentSubTypeImages.map((image) => ({
+                    img: image,
+                    alt: treatmentCarouselImages[treatmentSubType].alt,
+                }))}
+            />
             <section className="treatments-calendar">
                 <Title text="Agenda" />
                 <Calendar />
