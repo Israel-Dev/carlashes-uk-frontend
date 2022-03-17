@@ -90,14 +90,14 @@ const CardCarousel = () => {
             scroll = setInterval(() => {
                 setLeft((left) => {
                     if (Math.abs(left) >= ilusionWidth) return 0;
-                    return left - 1;
+                    return left - 10;
                 });
             }, 1);
         } else if (scrollDirection === 'right') {
             scroll = setInterval(() => {
                 setLeft((left) => {
-                    if (Math.abs(left) === 0) return -ilusionWidth;
-                    return left + 1;
+                    if (Math.abs(left) === 5) return -ilusionWidth;
+                    return left + 10;
                 });
             }, 1);
         }

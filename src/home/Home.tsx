@@ -21,7 +21,11 @@ const Home = () => {
     const [mosaicOptions, setMosaicOptions] = useState<
         { src: string; alt: string; url: string }[]
     >([
-        { src: image01, alt: 'Chloe', url: 'product?product_ref=8da89u131' },
+        {
+            src: 'https://drive.google.com/uc?export=view&id=1QNktlkNTcT9xDsJVux_c9mjjj1lWkeXR',
+            alt: 'Chloe',
+            url: 'product?product_ref=8da89u131',
+        },
         {
             src: image02,
             alt: 'Anabelle',
