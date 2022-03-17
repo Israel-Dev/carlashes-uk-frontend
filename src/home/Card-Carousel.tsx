@@ -23,39 +23,45 @@ import { cardMargin } from './Card-Carousel.styled';
 const CardCarousel = () => {
     const [items, setItems] = useState([
         {
+            src: 'https://drive.google.com/uc?export=view&id=16GeyVupQBQt0VNAAlowRBmfGpzvsz0U7',
+            alt: 'Nina Sane',
+            text: 'I would highly recommend her services to anyone that is looking for a glamorous flawless look. I get people complimenting her work and asking where do I get my lashes done.',
+            url: 'testimonial-01',
+        },
+        {
+            src: 'https://drive.google.com/uc?export=view&id=1DMZhEuqhGAMaU2CGV2U559Wsx2R2KTLs',
+            alt: 'Diana Varela',
+            text: "I'm in love with my lashes, I swear you have an enormous ability to increase any woman's self-esteem. I really appreciate your work and I'm very grateful every time I go there 🙏 Thank you you are very cool!🔝❤️🌹",
+            url: 'testimonial-01',
+        },
+        {
+            src: 'https://drive.google.com/uc?export=view&id=1MD3jfFSa_QhhDahJ06JTO8zJaFJ3BIM_',
+            alt: 'Raissa Medina',
+            text: 'Carla has been doing my eyelash extensions for quite a few months now and I wouldn’t go anywhere else! I also have quite sensitive skin and eyes but have had no reaction to them.',
+            url: 'testimonial-01',
+        },
+        {
+            src: 'https://drive.google.com/uc?export=view&id=1EAQUvpgEzG5JE_1eFJKIseqlfvot6cL5',
+            alt: 'Lala',
+            text: 'I am very happy with my lashes and how long it last.. My colleagues at work always give my lashes compliments 😁. Thank you, I feel and look like a bad bishhh 😄',
+            url: 'testimonial-01',
+        },
+        {
+            src: 'https://drive.google.com/uc?export=view&id=1FkUQVkCAuW5FnhqM4feJ6Wj2LOZ3EiB6',
+            alt: 'Paloma Sofia',
+            text: "They’re definitely the best lashes I’ve ever had! I am so happy I found you, my eyelashes always look amazing. You're the best Carla 😘❤️",
+            url: 'testimonial-01',
+        },
+        {
             src: image01,
             alt: 'Patricia',
             text: 'Carla is the most genuine person I’ve met and an excellent professional , she’s been doing my lashes for 6 months now and it’s always getting better',
             url: 'testimonial-01',
         },
         {
-            src: image02,
-            alt: 'Nina Sane',
-            text: 'I would highly recommend her services to anyone that is looking for a glamorous flawless look. I get people complimenting her work and asking where do I get my lashes done.',
-            url: 'testimonial-01',
-        },
-        {
             src: image03,
             alt: 'Mariama Jalloh',
             text: "I can't wait to get my eyelashes done with you again. My lashes are still intact and look full after a whole month, I'm never leaving you girl cause you really are the Best!",
-            url: 'testimonial-01',
-        },
-        {
-            src: image04,
-            alt: 'Lala',
-            text: 'I am very happy with my lashes and how long it last.. My colleagues at work always give my lashes compliments 😁. Thank you, I feel and look like a bad bishhh 😄',
-            url: 'testimonial-01',
-        },
-        {
-            src: image05,
-            alt: 'Raissa Medina',
-            text: 'Carla has been doing my eyelash extensions for quite a few months now and I wouldn’t go anywhere else! I also have quite sensitive skin and eyes but have had no reaction to them.',
-            url: 'testimonial-01',
-        },
-        {
-            src: image06,
-            alt: 'Paloma Sofia',
-            text: "They’re definitely the best lashes I’ve ever had! I am so happy I found you, my eyelashes always look amazing. You're the best Carla 😘❤️",
             url: 'testimonial-01',
         },
     ]);

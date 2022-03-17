@@ -35,6 +35,7 @@ const Treatment = () => {
     const [treatmentCarouselImages, setTreatmentCarouselImages] = useState<
         { img: string; alt: string; ref: string }[]
     >([]);
+    const treatmentRef = ref && ref.split('=')[1];
 
     const getTreatmentData = async () => {
         try {
@@ -72,8 +73,6 @@ const Treatment = () => {
 
     const getSubTypeImages = async (subTypeRef: string) => {
         try {
-            const treatmentRef = ref && ref.split('=')[1];
-
             if (treatmentRef) {
                 const subTypeImages: string[] = (
                     await axios.get(
@@ -94,6 +93,9 @@ const Treatment = () => {
         }
     }, [treatmentSubType]);
 
+    console.log('treatmentCarouselImages', treatmentCarouselImages);
+    console.log('treatmentSubType', treatmentSubType);
+
     return (
         <Styles className="treatment-page-wrapper">
             <Gradient />
@@ -110,7 +112,14 @@ const Treatment = () => {
             />
             <section className="treatments-calendar">
                 <Title text="Agenda" />
-                <Calendar />
+                <Calendar
+                    activeTreatment={treatmentRef}
+                    treatmentSubTypeRef={
+                        treatmentCarouselImages.length
+                            ? treatmentCarouselImages[treatmentSubType].ref
+                            : ''
+                    }
+                />
                 <p className="calendar-paragraph">
                     Schedule an Appointment with us on the available time slots!
                 </p>

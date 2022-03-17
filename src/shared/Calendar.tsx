@@ -103,7 +103,9 @@ const TextEditor = (props: any) => {
 
 const FormBasicLayout = (
     { onFieldChange, appointmentData, ...restProps }: any,
-    callback: Function
+    callback: Function,
+    activeTreatment?: string,
+    treatmentSubTypeRef?: string
 ) => {
     const onCustomFieldChange = (
         nextValue: string | number | Date,
@@ -132,7 +134,13 @@ const FormBasicLayout = (
     };
 
     const [treatments, setTreatments] = useState<
-        { name: string; price: string; ref: string; schedulePrice: string }[]
+        {
+            name: string;
+            price: string;
+            ref: string;
+            subTypeRef: string;
+            schedulePrice: string;
+        }[]
     >([]);
 
     useEffect(() => {
@@ -141,15 +149,58 @@ const FormBasicLayout = (
 
     const getTreatments = async () => {
         try {
-            const fetchedTreatments = (
+            const fetchedTreatments: {
+                name: string;
+                schedulePrice: string;
+                subTypes: {
+                    name: string;
+                    price: string;
+                    ref: string;
+                }[];
+            }[] = (
                 await axios.get(
-                    `${REACT_APP_SERVER_ADDRESS}/calendar/getTreatments`
+                    `${REACT_APP_SERVER_ADDRESS}/calendar/getTreatments${
+                        activeTreatment
+                            ? `?treatmentRef=${activeTreatment}`
+                            : ''
+                    }`
                 )
             )?.data;
-            setTreatments(fetchedTreatments);
+
+            const treatments: {
+                name: string;
+                price: string;
+                ref: string;
+                subTypeRef: string;
+                schedulePrice: string;
+            }[] = [];
+
+            fetchedTreatments.forEach((treatment) => {
+                treatment.subTypes.forEach((subType) => {
+                    treatments.push({
+                        name: `${treatment.name} - ${subType.name}`,
+                        price: subType.price,
+                        ref: subType.ref,
+                        subTypeRef: subType.ref,
+                        schedulePrice: treatment.schedulePrice,
+                    });
+                });
+            });
+
+            setTreatments(treatments);
 
             if (!appointmentData?.treatment)
-                onFieldChange({ treatment: fetchedTreatments[0].ref });
+                onFieldChange({
+                    treatment: treatments.find(
+                        (treatment) =>
+                            treatment.subTypeRef === treatmentSubTypeRef
+                    )?.subTypeRef
+                        ? treatments.find(
+                              (treatment) =>
+                                  treatment.subTypeRef === treatmentSubTypeRef
+                          )?.subTypeRef
+                        : treatments[0].ref,
+                });
         } catch (e) {
             console.error(e);
         }
@@ -248,7 +299,12 @@ const WeekTimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
     return <WeekView.TimeTableCell onClick={onDoubleClick} {...restProps} />;
 };
 
-const Calendar = () => {
+interface CalendarProps {
+    activeTreatment?: string;
+    treatmentSubTypeRef?: string;
+}
+
+const Calendar = ({ activeTreatment, treatmentSubTypeRef }: CalendarProps) => {
     const [currDate, setCurrDate] = useState(new Date());
     const [events, setEvents] = useState([]);
     const [showModal, setShowModal] = useState<boolean | null>(false);
@@ -400,7 +456,12 @@ const Calendar = () => {
                                 }
                                 booleanEditorComponent={BooleanEditor}
                                 basicLayoutComponent={(props) =>
-                                    FormBasicLayout(props, setIsValidReq)
+                                    FormBasicLayout(
+                                        props,
+                                        setIsValidReq,
+                                        activeTreatment,
+                                        treatmentSubTypeRef
+                                    )
                                 }
                                 textEditorComponent={TextEditor}
                                 selectComponent={Select}

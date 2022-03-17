@@ -18,7 +18,12 @@ interface IProps {
 
 const Carousel = (props: IProps) => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const [images, setImages] = useState([image00, image01, image02, image03]);
+    const [images, setImages] = useState([
+        'https://drive.google.com/uc?export=view&id=14bZXLWfkj73-XJM76Jb8ge-AOMO2ypqX',
+        image01,
+        image02,
+        image03,
+    ]);
 
     const { hasSticker, hasDots } = props;
 
