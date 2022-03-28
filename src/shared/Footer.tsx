@@ -1,5 +1,4 @@
 import Styles from './Footer.styled';
-import logoImageFile from '../assets/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faFacebook,
@@ -28,7 +27,9 @@ const Footer = () => {
             <div className="footer-padding">
                 <header className="top-section">
                     <img
-                        src={logoImageFile}
+                        src={
+                            'https://drive.google.com/uc?export=view&id=15BpofaJVctDboSVBRezIlcwSTzSXw-E6'
+                        }
                         alt="Carlashes UK"
                         className="logo-image"
                     />

@@ -24,6 +24,8 @@ const styles = styled.main`
     }
 
     .about-logo {
+        margin-top: 5vh;
+        width: 40vw;
         filter: invert(19%) sepia(12%) saturate(5897%) hue-rotate(160deg)
             brightness(60%) contrast(98%);
     }

@@ -22,7 +22,7 @@ const Home = () => {
         { src: string; alt: string; url: string }[]
     >([
         {
-            src: 'https://drive.google.com/uc?export=view&id=1QNktlkNTcT9xDsJVux_c9mjjj1lWkeXR',
+            src: 'https://drive.google.com/uc?export=view&id=1gl1orhrfRc484yNeM1cwvrBB7wbb-70o',
             alt: 'Chloe',
             url: 'product?product_ref=8da89u131',
         },

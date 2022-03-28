@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Footer from './shared/Footer';
 import axios, { AxiosError } from 'axios';
 import Loading from './loading/Loading';
+import { ScrollToTop } from 'shared';
 
 const { REACT_APP_SERVER_ADDRESS } = process.env;
 
@@ -30,34 +31,6 @@ const App = () => {
         { name: 'Our Treatments', url: 'our-treatments' },
         { name: 'Magnetic Eyelashes', url: 'magnetic-eyelashes' },
     ]);
-
-    // const getMenuOptions = async () => {
-    //     try {
-    //         const response = await axios.get(
-    //             `${REACT_APP_SERVER_ADDRESS}/resource/getMenuOptions`
-    //         );
-
-    //         const status = response.status;
-
-    //         switch (status) {
-    //             case 200:
-    //                 setMenuOptions(response.data);
-    //                 break;
-    //         }
-    //     } catch (e) {
-    //         console.error(e);
-
-    //         if (e.response) {
-    //             const status = e.response.status;
-
-    //             switch (status) {
-    //                 case 404:
-    //                 default:
-    //                     console.error('Impossible to get menu options');
-    //             }
-    //         }
-    //     }
-    // };
 
     return (
         <BrowserRouter>
@@ -101,6 +74,9 @@ const App = () => {
                     </Switch>
                 </Suspense>
                 <Footer />
+                <div className="scroll-up-wrapper">
+                    <ScrollToTop />
+                </div>
             </Styles>
         </BrowserRouter>
     );

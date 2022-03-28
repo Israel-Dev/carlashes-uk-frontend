@@ -20,6 +20,13 @@ const styles = styled.main`
     h4 {
         color: ${colors.purple};
     }
+
+    .scroll-up-wrapper {
+        position: fixed;
+        bottom: 5vw;
+        right: 5vw;
+        z-index: 100000;
+    }
 `;
 
 export default styles;

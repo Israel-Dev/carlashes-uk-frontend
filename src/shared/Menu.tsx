@@ -1,23 +1,24 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import logoImageFile from '../assets/logo.png'
-import Button from './Button'
-import Styles from './Menu.styled'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import logoImageFile from '../assets/logo.png';
+import Button from './Button';
+import Styles from './Menu.styled';
 
 interface IProps {
-    options: { name: string, url: string }[]
+    options: { name: string; url: string }[];
 }
 
 const Menu = (props: IProps) => {
-    const [isOpen, setIsOpen] = useState(false)
-    const history = useHistory()
-    const [logo, setLogo] = useState(
-        { src: logoImageFile, alt: "Carlashes - UK" }
-    )
+    const [isOpen, setIsOpen] = useState(false);
+    const history = useHistory();
+    const [logo, setLogo] = useState({
+        src: 'https://drive.google.com/uc?export=view&id=15BpofaJVctDboSVBRezIlcwSTzSXw-E6',
+        alt: 'Carlashes - UK',
+    });
 
-    const { options } = props
+    const { options } = props;
 
     const optionsElem = options.map((option, i) => {
         return (
@@ -25,14 +26,14 @@ const Menu = (props: IProps) => {
                 key={`${i}-option`}
                 className="menu-option"
                 onClick={() => {
-                    setIsOpen(false)
-                    history.push(`/${option.url}`)
+                    setIsOpen(false);
+                    history.push(`/${option.url}`);
                 }}
             >
                 {option.name}
             </li>
-        )
-    })
+        );
+    });
 
     return (
         <Styles className="menu-wrapper">
@@ -50,7 +51,10 @@ const Menu = (props: IProps) => {
                 <div className="menu-options-wrapper">
                     <ul className="menu-list">
                         {optionsElem}
-                        <Button label="Contact Me" callback={() => history.push("/contact-me")} />
+                        <Button
+                            label="Contact Me"
+                            callback={() => history.push('/contact-me')}
+                        />
                     </ul>
                 </div>
                 <div className="menu-icon-wrapper-mobile">
@@ -62,14 +66,18 @@ const Menu = (props: IProps) => {
                     />
                 </div>
             </div>
-            <div className={`menu-options-wrapper-mobile ${isOpen ? "open" : ""}`}>
+            <div
+                className={`menu-options-wrapper-mobile ${
+                    isOpen ? 'open' : ''
+                }`}
+            >
                 <ul className="menu-list">
                     {optionsElem}
                     <li
                         className="menu-option"
                         onClick={() => {
-                            setIsOpen(false)
-                            history.push(`/contact-me`)
+                            setIsOpen(false);
+                            history.push(`/contact-me`);
                         }}
                     >
                         Contact Me
@@ -77,7 +85,7 @@ const Menu = (props: IProps) => {
                 </ul>
             </div>
         </Styles>
-    )
-}
+    );
+};
 
-export default Menu
+export default Menu;
