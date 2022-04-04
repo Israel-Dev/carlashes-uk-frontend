@@ -49,6 +49,7 @@ const styles = styled.section`
     }
 
     .headline-title {
+        margin: 15px 0;
         font-style: italic;
     }
 

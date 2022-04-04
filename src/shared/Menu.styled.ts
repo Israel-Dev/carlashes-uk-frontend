@@ -125,6 +125,10 @@ const Styles = styled.nav`
             padding: 5vh 0;
             text-align: center;
         }
+
+        .menu-option:hover {
+            padding: 5vh 0;
+        }
     }
 `;
 
