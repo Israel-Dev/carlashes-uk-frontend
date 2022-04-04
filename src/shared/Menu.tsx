@@ -26,6 +26,7 @@ const Menu = (props: IProps) => {
                 key={`${i}-option`}
                 className="menu-option"
                 onClick={() => {
+                    window.scrollTo(0, 0);
                     setIsOpen(false);
                     history.push(`/${option.url}`);
                 }}
@@ -76,6 +77,7 @@ const Menu = (props: IProps) => {
                     <li
                         className="menu-option"
                         onClick={() => {
+                            window.scrollTo(0, 0);
                             setIsOpen(false);
                             history.push(`/contact-me`);
                         }}

@@ -64,10 +64,13 @@ const Styles = styled.nav`
     }
 
     @media (max-width: 875px) {
-        /* margin-top: 20px; */
         padding-top: 0;
         justify-content: flex-start;
         z-index: 50;
+
+        .logo-img {
+            max-width: 80%;
+        }
 
         .menu-icon:hover {
             cursor: pointer;
@@ -75,7 +78,7 @@ const Styles = styled.nav`
 
         .menu-padding {
             margin: 20px 0;
-            max-width: 80vw;
+            max-width: 60vw;
             justify-content: space-between;
         }
 
@@ -101,12 +104,16 @@ const Styles = styled.nav`
         }
 
         .open {
-            max-height: 300px;
+            position: fixed;
+            height: 100vh;
+            max-height: 100vh;
             transition: all ease-in-out 0.3s;
         }
 
         .menu-list {
+            justify-content: center;
             flex-direction: column;
+            height: 100%;
             width: 100%;
             padding: 0;
             margin: 0;
@@ -115,7 +122,7 @@ const Styles = styled.nav`
         .menu-option {
             border-bottom: white solid 1px;
             width: 100%;
-            padding: 15px 0;
+            padding: 5vh 0;
             text-align: center;
         }
     }
