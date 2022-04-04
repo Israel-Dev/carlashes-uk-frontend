@@ -37,7 +37,7 @@ const Headline = (props: IProps) => {
             <img
                 src={image}
                 alt={`${title}`}
-                key={Math.random()}
+                key={`${title}-${i}`}
                 className={`treatment-image ${active !== i ? 'hidden' : ''}`}
             />
         );

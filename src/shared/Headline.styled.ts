@@ -81,16 +81,6 @@ const styles = styled.section`
         transition: all 0.5s ease-in-out;
     }
 
-    .treatment-image-hidden {
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        transition: all 0.5s ease-in-out;
-    }
-
     @media (max-width: 875px) {
         flex-direction: column;
         height: auto;
