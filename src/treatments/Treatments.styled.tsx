@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const styles = styled.main`
     width: 100%;
@@ -46,13 +46,14 @@ const styles = styled.main`
     .calendar-paragraph {
         text-align: center;
         font-weight: 200;
+        margin: 0 0 15px 0;
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         .treatments-padding {
             width: 90%;
         }
     }
-`
+`;
 
-export default styles
+export default styles;

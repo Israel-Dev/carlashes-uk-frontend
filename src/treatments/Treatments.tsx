@@ -73,10 +73,10 @@ const Treatments = () => {
             <section className="treatments-headlines">{headlineElems}</section>
             <section className="treatments-calendar">
                 <Title text="Agenda" />
-                <Calendar />
                 <p className="calendar-paragraph">
                     Schedule an Appointment with us on the available time slots!
                 </p>
+                <Calendar />
             </section>
         </Styles>
     );
