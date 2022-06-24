@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React, { SyntheticEvent, useCallback } from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Styles from './Calendar.styled';
@@ -8,6 +8,7 @@ import {
     EditingState,
     EditingStateProps,
     ChangeSet,
+    FormatterFn,
 } from '@devexpress/dx-react-scheduler';
 import {
     Scheduler,
@@ -21,8 +22,8 @@ import {
     AppointmentForm,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Modal from './Modal';
-import { colors } from '../utils/stylesheet';
+import Modal from '../Modal';
+import { colors } from '../../utils/stylesheet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faPaperPlane,
@@ -31,6 +32,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import validator from 'validator';
 import { loadStripe } from '@stripe/stripe-js';
+import {
+    Appointment,
+    CommandLayout,
+    RadioGroup,
+    Select,
+    TextEditor,
+} from './components';
+import FormBasicLayout from './components/FormBasicLayout/FormBasicLayout';
 
 const { REACT_APP_SERVER_ADDRESS, REACT_APP_STRIPE_PUBLIC_KEY } = process.env;
 
@@ -60,30 +69,6 @@ const purpleTheme = createMuiTheme({
     },
 });
 
-const Appointment = ({ children, style, data, ...restProps }: any) => {
-    return (
-        <Appointments.Appointment
-            {...restProps}
-            style={{
-                ...style,
-                backgroundColor: data.color,
-            }}
-            onDoubleClick={null}
-        >
-            {children}
-        </Appointments.Appointment>
-    );
-};
-
-const CommandLayout = (props: any, isValidRequest: boolean) => (
-    <AppointmentForm.CommandLayout
-        {...props}
-        disableSaveButton={!isValidRequest}
-        hideDeleteButton={true}
-        className="command-wrapper"
-    />
-);
-
 const BooleanEditor = (props: any) => (
     <AppointmentForm.BooleanEditor
         className="event-checkboxes"
@@ -91,205 +76,6 @@ const BooleanEditor = (props: any) => (
         readOnly
     />
 );
-
-const Select = (props: any) => <AppointmentForm.Select {...props} />;
-
-const TextEditor = (props: any) => {
-    if (props.type === 'multilineTextEditor') {
-        return null;
-    }
-    return <AppointmentForm.TextEditor {...props} />;
-};
-
-const FormBasicLayout = (
-    { onFieldChange, appointmentData, ...restProps }: any,
-    callback: Function,
-    activeTreatment?: string,
-    treatmentSubTypeRef?: string
-) => {
-    const onCustomFieldChange = (
-        nextValue: string | number | Date,
-        field: string
-    ) => {
-        onFieldChange({ [field]: nextValue });
-    };
-
-    const hasField = (field: string) => {
-        if (appointmentData[field]) return true;
-        return false;
-    };
-
-    const hasAllFields = () => {
-        if (
-            hasField('clientName') &&
-            hasField('startDate') &&
-            hasField('endDate') &&
-            hasField('treatment') &&
-            hasField('email') &&
-            validator.isEmail(appointmentData.email) &&
-            hasField('phoneNumber') &&
-            appointmentData.phoneNumber.length >= 9
-        )
-            return true;
-    };
-
-    const [treatments, setTreatments] = useState<
-        {
-            name: string;
-            price: string;
-            ref: string;
-            subTypeRef: string;
-            schedulePrice: string;
-        }[]
-    >([]);
-
-    useEffect(() => {
-        getTreatments();
-    }, []);
-
-    const getTreatments = async () => {
-        try {
-            const fetchedTreatments: {
-                name: string;
-                schedulePrice: string;
-                subTypes: {
-                    name: string;
-                    price: string;
-                    ref: string;
-                }[];
-            }[] = (
-                await axios.get(
-                    `${REACT_APP_SERVER_ADDRESS}/calendar/getTreatments${
-                        activeTreatment
-                            ? `?treatmentRef=${activeTreatment}`
-                            : ''
-                    }`
-                )
-            )?.data;
-
-            const treatments: {
-                name: string;
-                price: string;
-                ref: string;
-                subTypeRef: string;
-                schedulePrice: string;
-            }[] = [];
-
-            fetchedTreatments.forEach((treatment) => {
-                treatment.subTypes.forEach((subType) => {
-                    treatments.push({
-                        name: `${treatment.name} - ${subType.name}`,
-                        price: subType.price,
-                        ref: subType.ref,
-                        subTypeRef: subType.ref,
-                        schedulePrice: treatment.schedulePrice,
-                    });
-                });
-            });
-
-            setTreatments(treatments);
-
-            if (!appointmentData?.treatment)
-                onFieldChange({
-                    treatment: treatments.find(
-                        (treatment) =>
-                            treatment.subTypeRef === treatmentSubTypeRef
-                    )?.subTypeRef
-                        ? treatments.find(
-                              (treatment) =>
-                                  treatment.subTypeRef === treatmentSubTypeRef
-                          )?.subTypeRef
-                        : treatments[0].ref,
-                });
-        } catch (e) {
-            console.error(e);
-        }
-    };
-
-    // Treatment options
-    const options = treatments.map((treatment, i) => ({
-        id: treatment.ref,
-        text: `${treatment.name} | Scheduling Price: £${treatment.schedulePrice}`,
-    }));
-
-    useEffect(() => {
-        if (hasAllFields()) return setTimeout(() => callback(true), 1500);
-        return callback(false);
-    });
-
-    return (
-        <div className="form-wrapper">
-            <AppointmentForm.Label text="Name" type="titleLabel" />
-            <AppointmentForm.TextEditor
-                className="text-input-form"
-                type="ordinaryTextEditor"
-                readOnly={false}
-                placeholder="Your Name"
-                value={appointmentData.clientName}
-                onValueChange={(newValue) =>
-                    onCustomFieldChange(newValue, 'clientName')
-                }
-            />
-            <div className="date-picker-wrapper">
-                <article className="date-picker-article">
-                    <AppointmentForm.Label
-                        text="Start time"
-                        type="titleLabel"
-                    />
-                    <AppointmentForm.DateEditor
-                        value={appointmentData.startDate}
-                        onValueChange={(newValue) =>
-                            onCustomFieldChange(newValue, 'startDate')
-                        }
-                        className="date-picker"
-                    />
-                </article>
-                <article className="date-picker-article">
-                    <AppointmentForm.Label text="End time" type="titleLabel" />
-                    <AppointmentForm.DateEditor
-                        value={appointmentData.endDate}
-                        onValueChange={(newValue) =>
-                            onCustomFieldChange(newValue, 'endDate')
-                        }
-                        className="date-picker"
-                        // disabled={true}
-                    />
-                </article>
-            </div>
-            <AppointmentForm.Label text="Desired Treatment" type="titleLabel" />
-            <AppointmentForm.Select
-                value={
-                    !appointmentData.treatment ? 1 : appointmentData.treatment
-                }
-                type="outlinedSelect"
-                onValueChange={(newValue) =>
-                    onCustomFieldChange(newValue, 'treatment')
-                }
-                availableOptions={options}
-            />
-            <AppointmentForm.Label text="Email" type="titleLabel" />
-            <AppointmentForm.TextEditor
-                type="ordinaryTextEditor"
-                readOnly={false}
-                placeholder="youremail@example.com"
-                value={appointmentData.email}
-                onValueChange={(newValue) =>
-                    onCustomFieldChange(newValue, 'email')
-                }
-            />
-            <AppointmentForm.Label text="Phone Number" type="titleLabel" />
-            <AppointmentForm.TextEditor
-                type="ordinaryTextEditor"
-                placeholder="+44 123 456 890"
-                readOnly={false}
-                value={appointmentData.phoneNumber}
-                onValueChange={(newValue) =>
-                    onCustomFieldChange(newValue, 'phoneNumber')
-                }
-            />
-        </div>
-    );
-};
 
 const DayTimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
     return <DayView.TimeTableCell onClick={onDoubleClick} {...restProps} />;
@@ -340,9 +126,15 @@ const Calendar = ({ activeTreatment, treatmentSubTypeRef }: CalendarProps) => {
         try {
             const stripe = await stripePromise;
 
+            console.log('e.added', e.added);
+            const payload = {
+                ...e.added,
+                treatment: 'C03DceR3Tn',
+            };
+
             const response = await axios.post(
                 `${REACT_APP_SERVER_ADDRESS}/calendar/payBooking`,
-                { ...e.added }
+                payload
             );
 
             if (response.status === 200) {
@@ -451,9 +243,13 @@ const Calendar = ({ activeTreatment, treatmentSubTypeRef }: CalendarProps) => {
                                 onVisibilityChange={(isVisible) => {
                                     if (!isVisible) setIsValidReq(false);
                                 }}
-                                commandLayoutComponent={(props) =>
-                                    CommandLayout(props, isValidReq)
-                                }
+                                commandLayoutComponent={(props) => {
+                                    console.log(
+                                        'props',
+                                        props.onCommitButtonClick
+                                    );
+                                    return CommandLayout(props, isValidReq);
+                                }}
                                 booleanEditorComponent={BooleanEditor}
                                 basicLayoutComponent={(props) =>
                                     FormBasicLayout(

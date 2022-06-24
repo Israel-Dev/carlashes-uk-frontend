@@ -1,7 +1,7 @@
 export { default as BannerCarousel } from './Banner-Carousel';
 export { default as Button } from './Button';
 export { default as Button2 } from './Button-2';
-export { default as Calendar } from './Calendar';
+export { Calendar } from './Calendar';
 export { default as CircleIcon } from './Circle-icon';
 export { default as Cover } from './Cover';
 export { default as Footer } from './Footer';

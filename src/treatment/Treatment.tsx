@@ -100,18 +100,13 @@ const Treatment = () => {
         <Styles className="treatment-page-wrapper">
             <Gradient />
             <Title text={treatmentTitle} />
-            <PhotoCarousel
-                items={treatmentCarouselImages}
-                setTreatmentSubType={setTreatmentSubType}
-            />
-            <PhotoWall
-                items={treatmentSubTypeImages.map((image) => ({
-                    img: image,
-                    alt: treatmentCarouselImages[treatmentSubType].alt,
-                }))}
-            />
+            <br />
+            <br />
+            <br />
+            <br />
+
             <section className="treatments-calendar">
-                <Title text="Agenda" />
+                {/* <Title text="Agenda" /> */}
                 <Calendar
                     activeTreatment={treatmentRef}
                     treatmentSubTypeRef={
@@ -124,6 +119,16 @@ const Treatment = () => {
                     Schedule an Appointment with us on the available time slots!
                 </p>
             </section>
+            <PhotoCarousel
+                items={treatmentCarouselImages}
+                setTreatmentSubType={setTreatmentSubType}
+            />
+            <PhotoWall
+                items={treatmentSubTypeImages.map((image) => ({
+                    img: image,
+                    alt: treatmentCarouselImages[treatmentSubType].alt,
+                }))}
+            />
         </Styles>
     );
 };

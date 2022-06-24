@@ -6,7 +6,7 @@ import Mosaic from '../shared/Mosaic';
 import Banner from './Banner';
 import CardCarousel from './Card-Carousel';
 import MosaicContent from './Mosaic-Content';
-import Calendar from '../shared/Calendar';
+import { Calendar } from '../shared/Calendar';
 import image01 from '../assets/Gallery_01.webp';
 import image02 from '../assets/Gallery_02.webp';
 import image03 from '../assets/Gallery_03.webp';

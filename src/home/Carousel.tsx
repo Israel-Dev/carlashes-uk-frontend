@@ -1,5 +1,4 @@
 import Styles from './Carousel.styled';
-import image00 from '../assets/Slider_05.webp';
 import image01 from '../assets/Slider_02.webp';
 import image02 from '../assets/Slider_03.webp';
 import image03 from '../assets/Slider_04.webp';
@@ -19,7 +18,7 @@ interface IProps {
 const Carousel = (props: IProps) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [images, setImages] = useState([
-        'https://drive.google.com/uc?export=view&id=14bZXLWfkj73-XJM76Jb8ge-AOMO2ypqX',
+        'https://drive.google.com/uc?export=view&id=1gl1orhrfRc484yNeM1cwvrBB7wbb-70o',
         image01,
         image02,
         image03,
@@ -47,6 +46,7 @@ const Carousel = (props: IProps) => {
             key={`${i}-carousel-image`}
             className={activeIndex === i ? 'current-image' : 'previous-image'}
             src={image}
+            alt={`carousel-${i}`}
             height="auto"
             width="auto"
         />

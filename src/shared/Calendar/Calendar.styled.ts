@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { colors } from '../utils/stylesheet';
+import { colors } from '../../utils/stylesheet';
 
 const WobbleAnimation = keyframes`
     from {

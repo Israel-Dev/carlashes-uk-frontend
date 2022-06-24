@@ -5,7 +5,7 @@ import Image01 from '../assets/Cover_01.webp';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Calendar from '../shared/Calendar';
+import { Calendar } from '../shared/Calendar';
 import Title from '../shared/Title';
 
 const { REACT_APP_SERVER_ADDRESS } = process.env;
