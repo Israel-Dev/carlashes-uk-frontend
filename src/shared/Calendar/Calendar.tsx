@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useCallback } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Styles from './Calendar.styled';
@@ -6,9 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import {
     ViewState,
     EditingState,
-    EditingStateProps,
     ChangeSet,
-    FormatterFn,
 } from '@devexpress/dx-react-scheduler';
 import {
     Scheduler,
@@ -30,14 +28,15 @@ import {
     faTimesCircle,
     IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
-import validator from 'validator';
 import { loadStripe } from '@stripe/stripe-js';
 import {
     Appointment,
+    BooleanEditor,
     CommandLayout,
-    RadioGroup,
+    DayTimeTableCell,
     Select,
     TextEditor,
+    WeekTimeTableCell,
 } from './components';
 import FormBasicLayout from './components/FormBasicLayout/FormBasicLayout';
 
@@ -68,22 +67,6 @@ const purpleTheme = createMuiTheme({
         },
     },
 });
-
-const BooleanEditor = (props: any) => (
-    <AppointmentForm.BooleanEditor
-        className="event-checkboxes"
-        {...props}
-        readOnly
-    />
-);
-
-const DayTimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
-    return <DayView.TimeTableCell onClick={onDoubleClick} {...restProps} />;
-};
-
-const WeekTimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
-    return <WeekView.TimeTableCell onClick={onDoubleClick} {...restProps} />;
-};
 
 interface CalendarProps {
     activeTreatment?: string;
@@ -126,7 +109,7 @@ const Calendar = ({ activeTreatment, treatmentSubTypeRef }: CalendarProps) => {
         try {
             const stripe = await stripePromise;
 
-            console.log('e.added', e.added);
+            console.log('e', e);
             const payload = {
                 ...e.added,
                 treatment: 'C03DceR3Tn',
@@ -244,10 +227,6 @@ const Calendar = ({ activeTreatment, treatmentSubTypeRef }: CalendarProps) => {
                                     if (!isVisible) setIsValidReq(false);
                                 }}
                                 commandLayoutComponent={(props) => {
-                                    console.log(
-                                        'props',
-                                        props.onCommitButtonClick
-                                    );
                                     return CommandLayout(props, isValidReq);
                                 }}
                                 booleanEditorComponent={BooleanEditor}

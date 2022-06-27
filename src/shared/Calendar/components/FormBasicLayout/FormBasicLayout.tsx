@@ -26,11 +26,12 @@ const FormBasicLayout = (
     };
 
     const hasAllFields = () => {
+        console.log('appointmentData', appointmentData);
         if (
             hasField('clientName') &&
             hasField('startDate') &&
             hasField('endDate') &&
-            hasField('treatment') &&
+            hasField('subTreatmentRef') &&
             hasField('treatmentType') &&
             hasField('email') &&
             validator.isEmail(appointmentData.email) &&
@@ -96,9 +97,9 @@ const FormBasicLayout = (
 
             setTreatments(treatments);
 
-            if (!appointmentData?.treatment)
+            if (!appointmentData?.subTreatmentRef)
                 onFieldChange({
-                    treatment: treatments.find(
+                    subTreatmentRef: treatments.find(
                         (treatment) =>
                             treatment.subTypeRef === treatmentSubTypeRef
                     )?.subTypeRef
@@ -131,8 +132,6 @@ const FormBasicLayout = (
             setSelectInitialValue(options[0].id);
         }
     }, [treatments, options, appointmentData.subTreatmentRef]);
-
-    console.log('selectInitialValue', selectInitialValue);
 
     return (
         <div className="form-wrapper">
