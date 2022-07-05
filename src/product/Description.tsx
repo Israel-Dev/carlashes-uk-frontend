@@ -43,7 +43,7 @@ const Description = (props: IProps) => {
                 await axios.post(
                     `${REACT_APP_SERVER_ADDRESS}/purchase/getSession`,
                     {
-                        products: [{ ref: '8da89u131', quantity }],
+                        products: [{ ref: productRef, quantity }],
                         shippingMethod,
                     }
                 )
