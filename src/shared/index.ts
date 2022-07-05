@@ -17,3 +17,4 @@ export { default as Sticker } from './Sticker';
 export { default as Title } from './Title';
 export { default as LabelCard } from './Label-Card';
 export { default as ScrollToTop } from './ScrollToTop';
+export { ProductCard } from './ProductCard';

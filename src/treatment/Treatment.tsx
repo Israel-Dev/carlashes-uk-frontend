@@ -104,6 +104,10 @@ const Treatment = () => {
             <br />
             <br />
             <br />
+            <PhotoCarousel
+                items={treatmentCarouselImages}
+                setTreatmentSubType={setTreatmentSubType}
+            />
 
             <section className="treatments-calendar">
                 {/* <Title text="Agenda" /> */}
@@ -119,10 +123,7 @@ const Treatment = () => {
                     Schedule an Appointment with us on the available time slots!
                 </p>
             </section>
-            <PhotoCarousel
-                items={treatmentCarouselImages}
-                setTreatmentSubType={setTreatmentSubType}
-            />
+
             <PhotoWall
                 items={treatmentSubTypeImages.map((image) => ({
                     img: image,

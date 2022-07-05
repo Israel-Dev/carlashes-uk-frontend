@@ -21,6 +21,7 @@ const LazyConfirmation = React.lazy(
 const LazyProduct = React.lazy(() => import('./product/Product'));
 const LazyContact = React.lazy(() => import('./contact/Contact'));
 const LazyAbout = React.lazy(() => import('./about/About'));
+const LazyLashesProductsShop = React.lazy(() => import('./LashesProductShop'));
 const Lazy404 = React.lazy(() => import('./_404/404'));
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         { name: 'Home', url: '' },
         { name: 'Our Treatments', url: 'our-treatments' },
         { name: 'Magnetic Eyelashes', url: 'magnetic-eyelashes' },
+        { name: 'Lashes Products', url: 'shop-lashes-products' },
     ]);
 
     return (
@@ -69,6 +71,10 @@ const App = () => {
                         <Route
                             path={'/treatment/:ref'}
                             component={LazyTreatment}
+                        />
+                        <Route
+                            path={`/shop-lashes-products`}
+                            component={LazyLashesProductsShop}
                         />
                         <Route component={Lazy404} />
                     </Switch>

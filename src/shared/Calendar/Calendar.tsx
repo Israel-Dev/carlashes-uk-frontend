@@ -109,7 +109,6 @@ const Calendar = ({ activeTreatment, treatmentSubTypeRef }: CalendarProps) => {
         try {
             const stripe = await stripePromise;
 
-            console.log('e', e);
             const payload = {
                 ...e.added,
                 treatment: 'C03DceR3Tn',
