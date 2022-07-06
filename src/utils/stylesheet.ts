@@ -15,7 +15,7 @@ export const colors = {
     'alpha-pink': '#b9a4a3b0',
     'dark-gray': '#707070', // dark-brown
     'dark-gray-2': '#BBB1AE',
-    'dark-brown': '#b39579',
+    'dark-brown': '#f76b6b',
     gray: '#7b7b7b',
     'light-gray': 'rgba(89, 88, 88, 0.3)',
     'purple-gradient':
