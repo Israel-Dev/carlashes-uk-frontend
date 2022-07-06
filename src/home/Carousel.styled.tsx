@@ -1,4 +1,12 @@
 import styled from 'styled-components';
+import { colors } from 'utils/stylesheet';
+
+const background = `linear-gradient(
+    140deg,
+    ${colors.darkPrimary2} 50%,
+    rgba(178, 109, 180, 0.04) 80%,
+    rgba(0, 0, 0, 0) 100%
+)`;
 
 const styles = styled.section`
     max-height: 700px;
@@ -60,12 +68,7 @@ const styles = styled.section`
         height: 100%;
         z-index: 1;
         background: rgb(91, 0, 38);
-        background: linear-gradient(
-            140deg,
-            rgb(153 120 89 / 30%) 50%,
-            rgba(178, 109, 180, 0.04) 80%,
-            rgba(0, 0, 0, 0) 100%
-        );
+        background: ${background};
         position: absolute;
     }
 

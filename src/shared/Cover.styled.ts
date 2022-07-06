@@ -1,4 +1,12 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { colors } from 'utils/stylesheet';
+
+const background = `linear-gradient(
+    140deg,
+    ${colors.darkPrimary2} 50%,
+    rgba(178, 109, 180, 0.04) 80%,
+    rgba(0, 0, 0, 0) 100%
+)`;
 
 const styles = styled.section`
     position: relative;
@@ -12,8 +20,8 @@ const styles = styled.section`
         width: 100%;
         height: 100%;
         z-index: 1;
-        background: rgb(91,0,38);
-        background: linear-gradient(140deg,rgb(153 120 89 / 45%) 50%,rgba(178,109,180,0.04) 80%,rgba(0,0,0,0) 100%);
+        background: rgb(91, 0, 38);
+        background: ${background};
     }
 
     .cover-title {
@@ -26,7 +34,7 @@ const styles = styled.section`
         transform: translate(-50%, -50%);
     }
 
-    @media(max-width: 875px) {
+    @media (max-width: 875px) {
         height: 500px;
 
         .cover-title {
@@ -38,6 +46,6 @@ const styles = styled.section`
             height: 100%;
         }
     }
-`
+`;
 
-export default styles
+export default styles;
