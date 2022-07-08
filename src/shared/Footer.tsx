@@ -37,8 +37,8 @@ const Footer = () => {
                 <section className="middle-section">
                     <aside className="left-corner">
                         <p className="text-under-logo">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit.
+                            We simply accentuate the natural beauty that is
+                            already there
                         </p>
                         <h5 className="color-text-under-logo">
                             {REACT_APP_EMAIL}

@@ -26,7 +26,8 @@ const About = () => {
                         className="about-logo"
                     />
                     <p className="about-paragraph Philosopher">
-                        “Lorem Ipsum text over here, another line here too”
+                        “We simply accentuate the natural beauty that is already
+                        there”
                     </p>
                 </header>
                 <section className="about-section">
@@ -34,16 +35,12 @@ const About = () => {
                         <Title text="Our Products" />
                         <section className="about-article-section">
                             <p className="about-article-paragraph">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est laborum.
+                                We ensure that every product has gone through an
+                                extensive quality check before it’s added to the
+                                Carlashes range.
+                                <br />
+                                We pride ourselves on friendly, professional and
+                                efficient service.
                             </p>
                             <footer className="about-article-footer">
                                 <CircleIcon icon={faHandshake} text="Trust" />
@@ -58,7 +55,9 @@ const About = () => {
                     <article className="about-article">
                         <Title text="About Me" />
                         <PhotoCard
-                            img={CEO}
+                            img={
+                                'https://drive.google.com/uc?export=view&id=1NMPBNp48hK65viMW2vXJLGjnR4GNbJmI'
+                            }
                             alt="Carla Gomes Santo, CEO, Carlashes UK"
                             text="Carla Santo, CEO of Carlashes, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim 
                             ad minim veniam, quis nostrud exercitation."

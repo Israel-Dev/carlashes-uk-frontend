@@ -18,9 +18,9 @@ interface IProps {
 const Carousel = (props: IProps) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [images, setImages] = useState([
-        'https://drive.google.com/uc?export=view&id=1gl1orhrfRc484yNeM1cwvrBB7wbb-70o',
-        image01,
-        image02,
+        'https://drive.google.com/uc?export=view&id=1S47NZxW3NItM1PnfkJ0PSbBgiLt7HNV1',
+        'https://drive.google.com/uc?export=view&id=14j7gKFA5BjlfRDexAsn_9nNXxDkjX78B',
+        'https://drive.google.com/uc?export=view&id=12SFuKte1pXrQn6G-eY8s7KBJjsQXj-e9',
         image03,
     ]);
 
@@ -74,14 +74,10 @@ const Carousel = (props: IProps) => {
                 </div>
             )}
             <div className="carousel-title">
-                <h1 className="carousel-maintitle">
-                    The best eyelashes
-                    <br />
-                    in all UK
-                </h1>
+                <h1 className="carousel-maintitle">Hello Gorgeous!</h1>
                 <p className="carousel-subtitle">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    quisque nisl eros.
+                    We simply accentuate the natural beauty that is already
+                    there
                 </p>
             </div>
             {hasSticker && (

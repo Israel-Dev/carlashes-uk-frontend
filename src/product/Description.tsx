@@ -91,13 +91,14 @@ const Description = (props: IProps) => {
                                 selected={shippingMethod}
                                 name="shipping_method"
                                 options={[
+                                    // TBD Adicionar opção de levantamento no endereço
                                     {
-                                        label: 'Standard UK Shipping - Free',
+                                        label: 'Standard UK Shipping - £3.99',
                                         value: 1,
                                         description: '2-4 Working Days',
                                     },
                                     {
-                                        label: 'DPD Next Working Day Tracked - £3.00',
+                                        label: 'DPD Next Working Day Tracked - £5.99',
                                         value: 2,
                                         description:
                                             'Order berfore 3pm Mon-Fri for Next Working Day Delivery // Orders after 3pm Fri-Mon are delivered Tue.',

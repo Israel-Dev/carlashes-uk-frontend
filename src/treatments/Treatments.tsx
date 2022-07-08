@@ -58,7 +58,12 @@ const Treatments = () => {
         <Styles className="treatments-wrapper">
             <Cover
                 title="Our Treatments"
-                images={[{ src: Image01, alt: 'Our Treatments' }]}
+                images={[
+                    {
+                        src: 'https://drive.google.com/uc?export=view&id=1vFo7iw5H1KPNFPgL1x96szNTTIcLfV00',
+                        alt: 'Our Treatments',
+                    },
+                ]}
             />
             <div className="treatments-padding">
                 <section className="treatments-text-area">

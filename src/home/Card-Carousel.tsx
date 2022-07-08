@@ -59,7 +59,7 @@ const CardCarousel = () => {
             url: 'testimonial-01',
         },
         {
-            src: image03,
+            src: 'https://drive.google.com/uc?export=view&id=1IGuewZZMzJoHrZe_vA8T39eNkQBNQKDS',
             alt: 'Mariama Jalloh',
             text: "I can't wait to get my eyelashes done with you again. My lashes are still intact and look full after a whole month, I'm never leaving you girl cause you really are the Best!",
             url: 'testimonial-01',

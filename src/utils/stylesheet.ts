@@ -8,7 +8,7 @@ export enum BorderRadius {
 export const colors = {
     purple: '#498999', // dark-blue
     pink: '#ffdfdf', // light-brown-2
-    darkPrimary: '#fb9d9d',
+    darkPrimary: '#fb9d9da6',
     darkPrimary2: '#ff7a7a4d',
     'alpha-White': '#ffffff65',
     'alpha-gray': '#595858d1',

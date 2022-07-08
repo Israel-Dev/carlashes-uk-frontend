@@ -42,7 +42,7 @@ const Styles = styled.nav`
     }
 
     .menu-option {
-        color: white;
+        color: black;
         cursor: pointer;
         user-select: none;
         transition: all ease-in-out 0.2s;
